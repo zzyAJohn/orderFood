@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">test_login</string>
+
+    <string-array name="cities">
+        <item>北京</item>
+        <item>上海</item>
+        <item>天津</item>
+    </string-array>
+</resources>
