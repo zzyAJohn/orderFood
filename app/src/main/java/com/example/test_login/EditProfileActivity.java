@@ -9,17 +9,21 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.ContentUris;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
@@ -36,8 +40,10 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -223,6 +229,7 @@ public class EditProfileActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        //拍照
         if (requestCode == REQUEST_CODE_TAKE) {
             //如果用户同意
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -230,6 +237,16 @@ public class EditProfileActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "没有相机权限", Toast.LENGTH_SHORT).show();
             }
+        }
+        //相册
+        else if (requestCode == REQUEST_CODE_CHOOSE) {
+            //如果用户同意
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openAlbum();
+            } else {
+                Toast.makeText(this, "没有相册权限", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 
@@ -267,6 +284,7 @@ public class EditProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //拍照
         if (requestCode == REQUEST_CODE_TAKE) {
             //如果拍照返回成功
             if (resultCode == RESULT_OK) {
@@ -283,12 +301,107 @@ public class EditProfileActivity extends AppCompatActivity {
 
                 }
             }
+            //相册
+        } else if (requestCode == REQUEST_CODE_CHOOSE) {
+            if (Build.VERSION.SDK_INT < 19) {
+                Uri uri = data.getData();
+                String imagePath = getImagePath(uri, null);
+                displayImage(imagePath);
+
+            } else {
+                handleImageOnApi19(data);
+            }
+
+
         }
     }
 
+    @TargetApi(19)
+    private void handleImageOnApi19(Intent data) {
+        String imagePath = null;
+        Uri uri = data.getData();
+        if (DocumentsContract.isDocumentUri(this, uri)) {
+            String documentId = DocumentsContract.getDocumentId(uri);
+            if (TextUtils.equals(uri.getAuthority(), "com.android.providers.media.documents")) {
+                String id = documentId.split(":")[1];
+                String selection = MediaStore.Images.Media._ID + "=" + id;
+                imagePath = getImagePath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, selection);
+            } else if (TextUtils.equals(uri.getAuthority(), "com.android.providers.downloads.documents")) {
+                if (documentId != null && documentId.startsWith("msf:")) {
+                    resolveMSFContent(uri, documentId);
+                    return;
+                }
+                Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(documentId));
+                imagePath = getImagePath(contentUri, null);
+            } else if ("content".equalsIgnoreCase(uri.getScheme())) {
+                imagePath = getImagePath(uri, null);
+            } else if ("file".equalsIgnoreCase(uri.getScheme())) {
+                imagePath = uri.getPath();
+            }
+            displayImage(imagePath);
+        }
+    }
+
+    private void resolveMSFContent(Uri uri, String documentId) {
+        File file = new File(getCacheDir(), "temp_file" + getContentResolver().getType(uri).split("/")[1]);
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(uri);
+            OutputStream outputStream = new FileOutputStream(file);
+            byte[] buffer = new byte[4 * 1024];
+            int read;
+            while ((read = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer,0,read);
+            }
+            outputStream.flush();
+            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+            ivAvatar.setImageBitmap(bitmap);
+            imageBase64 = ImageUtil.imageToBase64(bitmap);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String getImagePath(Uri uri, String selection) {
+        String path = null;
+        Cursor cursor = getContentResolver().query(uri, null, selection, null, null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+            }
+            cursor.close();
+        }
+        return path;
+    }
+
+    private void displayImage(String imagePath) {
+        if (imagePath != null) {
+            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
+            ivAvatar.setImageBitmap(bitmap);
+            String imageToBase64 = ImageUtil.imageToBase64(bitmap);
+            imageBase64 = imageToBase64;
+        }
+    }
+
+
     //通过相册修改头像
     public void choosePhoto(View view) {
+        //先检查是否有权限
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            //打开相册
+            openAlbum();
+        } else {
+            //申请
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE_CHOOSE);
+        }
+    }
 
+    //打开相册
+    private void openAlbum() {
+        Intent intent = new Intent("android.intent.action.GET_CONTENT");
+        intent.setType("image/*");
+        startActivityForResult(intent, REQUEST_CODE_CHOOSE);
     }
 
 
