@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etAccount, etPassword;
     private CheckBox cbRemember, cbAutoLogin;
 
-    private String tempAccount = "zzy";
+    private String tempAccount = "10001";
     private String tempPassword = "123";
 
     @Override

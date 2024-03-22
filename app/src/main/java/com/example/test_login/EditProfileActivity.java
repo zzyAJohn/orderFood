@@ -74,42 +74,46 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     //从文件取数据
+    //特殊：年龄通过出生时间推算，性别通过rb的check
     private void getDataFromSpf() {
         SharedPreferences spRecord = getSharedPreferences("spRecord", MODE_PRIVATE);
 
         String nickName = spRecord.getString("nickName", "");
         String gender = spRecord.getString("gender", "");
-        String age = spRecord.getString("age", "");
 
         String account = spRecord.getString("account", "");
-        String birthTime = spRecord.getString("birthTime", "");
+        String birthTime = spRecord.getString("birthTime", "2002年7月20日");
         String city = spRecord.getString("city", "");
         String school = spRecord.getString("school", "");
         String sign = spRecord.getString("sign", "");
 
         etNickName.setText(nickName);
-//        .setText(gender);
-//        .setText(age);
+
 
         etAccount.setText(account);
         tvBirthTime.setText(birthTime);
-//        .setText(city);
+
         etSchool.setText(school);
         etSign.setText(sign);
-    }
 
-
-    // TODO: 通过出生日期推算年龄这里还需要完成！
-    private String getAgeByBirthday(String birthTime) {
-        //2000年11月1日12时34分
-        if (TextUtils.isEmpty(birthTime)) {
-            return "";
+        //设置性别
+        if (TextUtils.equals("女", gender)) {
+            rbGirl.setChecked(true);
         }
-        //字符串操作
-        int index = birthTime.indexOf("年");
+        if (TextUtils.equals("男", gender)) {
+            rbBoy.setChecked(true);
+        }
 
-        return "";
+        //设置城市
+        for (int i = 0; i < cities.length; i++) {
+            if (TextUtils.equals(cities[i], city)) {
+                selectedCityPosition = i;
+                break;
+            }
+        }
+        spinnerCity.setSelection(selectedCityPosition);
     }
+
 
     //设置监听器
     private void initEvent() {
@@ -120,9 +124,9 @@ public class EditProfileActivity extends AppCompatActivity {
                 selectedCityPosition = position;
                 selectedCity = cities[position];
 
-
                 Log.d(TAG, "position: " + position);
                 Log.d(TAG, "selectedCity: " + selectedCity);
+
             }
 
             @Override
@@ -143,13 +147,14 @@ public class EditProfileActivity extends AppCompatActivity {
                         int realMonth = month + 1;
                         birthTime = year + "年" + realMonth + "月" + dayOfMonth + "日";
                         Log.d(TAG, "birthTime: " + birthTime);
+                        tvBirthTime.setText(birthTime);
 
                         //选择时间的，暂时不用
 //                        popTimePick();
                     }
 
 
-                }, 2000, 10, 23).show();
+                }, 2002, 6, 20).show();
 
             }
         });
@@ -176,11 +181,8 @@ public class EditProfileActivity extends AppCompatActivity {
         if (rbBoy.isChecked()) {
             gender = "男";
         }
-//        String age = .getText().toString();
 
         String account = etAccount.getText().toString();
-//        String birthTime = .getText().toString();
-//        String city = .getText().toString();
         String school = etSchool.getText().toString();
         String sign = etSign.getText().toString();
 
@@ -190,11 +192,11 @@ public class EditProfileActivity extends AppCompatActivity {
 
         edit.putString("nickName", nickName);
         edit.putString("gender", gender);
-//        edit.putString("age", age);
+
 
         edit.putString("account", account);
         edit.putString("birthTime", birthTime);
-//        edit.putString("city", city);
+        edit.putString("city", selectedCity);
         edit.putString("school", school);
         edit.putString("sign", sign);
 
