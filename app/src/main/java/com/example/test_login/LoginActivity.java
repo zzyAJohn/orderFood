@@ -140,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
         if (isAutoLogin) {
 
             //intent传参
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
             String account = spRecord.getString("account", "");
             intent.putExtra("account", account);
 

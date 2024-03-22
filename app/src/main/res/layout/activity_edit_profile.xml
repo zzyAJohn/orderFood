@@ -33,12 +33,22 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="拍照" />
+                    android:layout_margin="10dp"
+                    android:onClick="takePhoto"
+                    android:background="@drawable/btn_bg_selector"
+                    android:text="拍照"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="相册" />
+                    android:layout_margin="10dp"
+                    android:background="@drawable/btn_bg_selector"
+                    android:text="相册"
+                    android:onClick="choosePhoto"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
             </LinearLayout>
 
             <ImageView
