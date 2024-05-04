@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:title="首页"
+        android:icon="@drawable/home"
+
+        />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:title="待收货"
+        android:icon="@drawable/dsh"
+      />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:title="我的"
+        android:icon="@drawable/my"
+       />
+
+</menu>

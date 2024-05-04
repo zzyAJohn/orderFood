@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.BusinessActivity">
+
+
+
+
+    <LinearLayout
+        android:id="@+id/business_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F24960"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="15dp"
+
+        >
+
+        <EditText
+            android:id="@+id/business_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_edit"
+            android:padding="7dp"
+            android:hint="搜 索 商 品"
+            android:drawableLeft="@drawable/search"
+            />
+
+    </LinearLayout>
+
+
+
+    <FrameLayout
+        android:layout_below="@+id/business_toolbar"
+
+        android:id="@+id/business_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="61dp"
+        android:background="#F5F5F5"
+        >
+        <ListView
+            android:id="@+id/business_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:dividerHeight="8dp"
+            android:divider="@android:color/transparent"
+            android:layout_marginTop="10dp"
+            />
+
+        <!--第一次的加载是首页的内容-->
+
+
+
+
+
+    </FrameLayout>
+
+
+    <View
+        android:layout_above="@+id/business_main_radio"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DFDFDF"/>
+
+    <LinearLayout
+        android:id="@+id/business_main_radio"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="5dp"
+        android:background="#FEFEFE"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/business_home"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:textColor="#9F9F9F"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/home"
+            android:text="首页"
+            android:textStyle="bold"
+            android:stateListAnimator="@null"
+            android:background="#FEFEFE"
+
+            />
+
+
+        <RadioButton
+            android:id="@+id/business_add"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:textColor="#9F9F9F"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/add"
+            android:text="添加商品"
+            android:textStyle="bold"
+            android:stateListAnimator="@null"
+            android:background="#FEFEFE"
+
+            />
+
+        <RadioButton
+            android:id="@+id/business_my"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:textColor="#9F9F9F"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/my"
+            android:text="我的"
+            android:background="#FEFEFE"
+            android:textStyle="bold"
+            android:stateListAnimator="@null"
+
+            />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+
+

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+
+
+    <LinearLayout
+        android:id="@+id/business_my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F24960"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="15dp"
+
+        >
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/circle_background"
+                android:layout_marginTop="20dp"
+                android:layout_margin="7dp"
+
+                >
+                <ImageView
+                    android:id="@+id/business_my_tx"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/login"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/circle_background"
+                    />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/business_my_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="root"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_horizontal|center_vertical"
+                />
+
+        </LinearLayout>
+
+
+
+
+        <!--存放个人账号，名称与描述-->
+        <LinearLayout
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:gravity="top"
+            android:layout_marginLeft="20dp"
+
+            >
+
+
+
+            <TextView
+                android:id="@+id/business_my_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="小铭杂货铺"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="#F2FFFFFF"
+                />
+
+            <TextView
+                android:id="@+id/business_my_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的个人是一个不一样的个人"
+                android:layout_marginTop="20dp"
+                android:textSize="13sp"
+                android:textColor="#F2FFFFFF"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/business_my_toolbar_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/business_my_toolbar"
+        android:background="#FFFFFF"
+        android:layout_marginTop="10dp"
+        >
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DFDFDF"/>
+        <TextView
+            android:id="@+id/user_my_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="查看完成订单"
+
+
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="18sp"
+            android:textColor="#333333"
+
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableLeft="@drawable/yifahuo"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/path"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="20dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DFDFDF"/>
+        <TextView
+            android:id="@+id/user_dz_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="我的收货地址"
+
+
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="18sp"
+            android:textColor="#333333"
+
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableLeft="@drawable/sh"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/path"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="20dp"
+            />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DFDFDF"/>
+        <TextView
+            android:id="@+id/business_my_xgdpxx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="修改个人信息"
+
+
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="18sp"
+            android:textColor="#333333"
+
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableLeft="@drawable/xggrxx"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/path"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="20dp"
+            />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DFDFDF"/>
+
+        <TextView
+            android:id="@+id/business_my_xgmm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="修改密码"
+
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:drawableLeft="@drawable/gmm"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/path"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="20dp"
+            />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DFDFDF"/>
+
+        <TextView
+
+            android:id="@+id/business_my_zx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="注销账号"
+
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableLeft="@drawable/zx"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/path"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="20dp"
+            />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DFDFDF"/>
+
+        <TextView
+
+            android:id="@+id/business_my_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="退出账号"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableLeft="@drawable/exit"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+
+            android:drawableRight="@drawable/path"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="20dp"
+            />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DFDFDF"/>
+    </LinearLayout>
+
+
+
+
+
+   
+
+
+
+</RelativeLayout>
+
+

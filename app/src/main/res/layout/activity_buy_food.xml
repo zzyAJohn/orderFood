@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".user.activity.BuyFoodActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/buy_toolbar_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F24960"
+        app:title="店铺信息"
+        app:titleTextColor="#FFFFFF"
+        app:navigationIcon="@drawable/back"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/bg"
+        >
+
+        <ImageView
+            android:id="@+id/user_food_business_tx_one"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/login"
+            android:layout_margin="7dp"
+            android:scaleType="centerCrop"
+            android:paddingLeft="5dp"
+            />
+
+
+        <TextView
+            android:id="@+id/user_food_business_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="小明店铺"
+            android:layout_margin="7dp"
+            android:layout_toRightOf="@+id/user_food_business_tx_one"
+
+            android:textColor="#5A5A5A"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center_horizontal|center_vertical"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/user_food_business_tx_one"
+            android:layout_below="@+id/user_food_business_name"
+            >
+            <TextView
+                android:id="@+id/user_food_business_con"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="简介：这是一个很好的店铺"
+                android:layout_margin="7dp"
+                android:layout_toRightOf="@+id/user_food_business_tx"
+                android:textColor="#CCFFFFFF"
+                android:textStyle="bold|italic"
+                android:gravity="center_horizontal|center_vertical"
+                />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+<!--实习选项卡功能高-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="5dp"
+            android:orientation="vertical"
+            >
+
+
+            <TextView
+                android:id="@+id/buy_dc_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点餐"
+                android:textSize="18sp"
+                android:textStyle="bold"
+
+                />
+
+            <View
+                android:id="@+id/buy_t_one"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#F24960"
+               android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="3dp"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="5dp"
+            android:orientation="vertical"
+            >
+
+
+            <TextView
+                android:id="@+id/buy_dc_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="评论"
+                android:textSize="18sp"
+                />
+
+            <View
+                android:id="@+id/buy_t_two"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#F24960"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="3dp"
+                android:visibility="invisible"
+                />
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#992C2929"
+        />
+
+
+    <!--接下来绘制我们想要的内容,食物的列表-->
+    <RelativeLayout
+        android:id="@+id/buy_list_oneA"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <ListView
+            android:id="@+id/buy_list_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ListView
+            android:id="@+id/buy_list_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp"
+            android:background="#FFFFFF"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/tb"
+                android:padding="3dp"/>
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#F24960"
+                android:text="￥ "
+
+                android:gravity="start|center"
+                android:layout_marginLeft="20dp"
+
+                />
+
+            <TextView
+                android:id="@+id/buy_food_sum_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#F24960"
+                android:text="0"
+                android:layout_weight="1"
+                android:gravity="start|center"
+                />
+
+
+            <!--这个是用来存储商品ID，以及数量的-->
+            <TextView
+                android:id="@+id/buy_food_sum_two"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+
+
+                />
+
+            <Button
+                android:id="@+id/buy_food_js"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_background_buy"
+                android:textColor="#FFFFFF"
+                android:text="去结算"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

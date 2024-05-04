@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".activity.OrderFinishActivity">
+
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/business_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F24960"
+    android:orientation="horizontal"
+    android:gravity="center_vertical|center_horizontal"
+    app:navigationIcon="@drawable/back"
+    >
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/business_search_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:iconifiedByDefault="false"
+        android:background="@drawable/search_edit"
+        android:layout_marginRight="20dp"
+        app:queryHint="搜 索 订 单" />
+
+
+</androidx.appcompat.widget.Toolbar>
+
+
+
+
+
+
+<FrameLayout
+    android:layout_below="@+id/business_toolbar"
+
+    android:id="@+id/business_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    >
+    <ListView
+        android:id="@+id/business_list_view_order"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:dividerHeight="8dp"
+        android:divider="@android:color/transparent"
+        android:layout_marginTop="10dp"
+        android:background="#F5F5F5"
+        />
+
+    <!--第一次的加载是首页的内容-->
+
+</FrameLayout>
+
+
+
+
+
+</RelativeLayout>
+
+

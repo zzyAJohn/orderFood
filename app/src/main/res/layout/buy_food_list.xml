@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:orientation="vertical"
+    android:background="@drawable/image_round"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        >
+
+
+
+        <ImageView
+            android:id="@+id/food_list_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/login"
+
+            android:layout_margin="7dp"
+            android:scaleType="centerCrop"
+
+            android:background="@drawable/image_round"
+            android:paddingLeft="5dp"
+
+            />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+
+            <TextView
+                android:id="@+id/food_lis_sale_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="东北麻辣烫，炒香味道"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                />
+
+
+            <TextView
+                android:id="@+id/food_lis_sale_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="月售：300 份"
+                android:layout_marginTop="5dp"
+                />
+
+
+            <TextView
+                android:id="@+id/food_list_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="价格：20 元"
+                android:textColor="#D32F2F"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                />
+
+            <TextView
+                android:id="@+id/food_list_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="描述：来自传统的酱香麻辣烫"
+                android:layout_marginTop="5dp"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:paddingRight="30dp"
+
+        >
+
+
+        <ImageView
+            android:id="@+id/food_no_add"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/jianhao"
+            android:padding="3dp"/>
+
+        <TextView
+            android:id="@+id/food_num_add"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="0"
+
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+
+
+
+        <ImageView
+            android:id="@+id/food_add"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/jiahao"
+            android:padding="3dp"/>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+

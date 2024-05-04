@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- circle_background.xml -->
+
+    <item>
+        <shape>
+            <solid android:color="#FFFFFF" /> <!-- 设置圆的填充颜色 -->
+            <corners android:radius="10dp" /> <!-- 使用半径属性使背景为圆形 -->
+        </shape>
+    </item>
+
+
+
+</selector>
