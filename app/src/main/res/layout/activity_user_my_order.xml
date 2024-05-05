@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-tools:context=".user.activity.UserMyOrderActivity"
-
-    >
-
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/add_business_toolbar_one"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#F24960"
-    app:titleTextColor="#FFFFFF"
-    app:navigationIcon="@drawable/back"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".user.activity.UserMyOrderActivity"
 
     >
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/user_search_search"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/add_business_toolbar_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:iconifiedByDefault="false"
-        android:background="@drawable/search_edit"
-        android:layout_marginRight="20dp"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/back"
+        app:titleTextColor="#FFFFFF"
 
-        app:queryHint="搜素订单" />
+        >
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/user_search_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/search_edit"
+            app:iconifiedByDefault="false"
+
+            app:queryHint="搜素订单" />
 
 
-</androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 
-<ListView
-    android:id="@+id/user_list_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:dividerHeight="10dp"
+    <ListView
+        android:id="@+id/user_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="10dp"
 
-    />
+        />
 
 </LinearLayout>

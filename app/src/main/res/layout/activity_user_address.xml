@@ -12,7 +12,7 @@
         android:id="@+id/address_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F24960"
+        android:background="@color/colorPrimary"
         app:title="我的收货地址"
         app:titleTextColor="#FFFFFF"
         app:navigationIcon="@drawable/back"

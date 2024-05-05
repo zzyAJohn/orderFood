@@ -4,27 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.BusinessCommentActivity"
     android:orientation="vertical"
-    >
+    tools:context=".activity.BusinessCommentActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/comment_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F24960"
-        app:title="店铺的评论"
-        app:titleTextColor="#FFFFFF"
+        android:background="@color/colorPrimary"
         app:navigationIcon="@drawable/back"
-        />
+        app:title="店铺的评论"
+        app:titleTextColor="#FFFFFF" />
 
 
     <ListView
         android:id="@+id/comment_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="1dp"
-        />
+        android:dividerHeight="1dp" />
 
 
 </LinearLayout>

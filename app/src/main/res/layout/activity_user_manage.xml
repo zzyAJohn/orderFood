@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.activity.UserManageActivity"
-    android:orientation="vertical"
     android:background="#F5F5F5"
-    >
+    android:orientation="vertical"
+    tools:context=".user.activity.UserManageActivity">
 
     <!--多层级可以事项 A-->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
 
     </FrameLayout>
 
@@ -24,11 +22,10 @@
         android:id="@+id/bottom_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F24960"
-        app:menu="@menu/bottom_navigation_menu"
+        android:background="@color/colorPrimary"
         app:itemIconTint="@color/selectcolor"
         app:itemTextColor="@color/selectcolor"
-        />
+        app:menu="@menu/bottom_navigation_menu" />
 
 
 </LinearLayout>

@@ -12,7 +12,7 @@
         android:id="@+id/add_business_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F24960"
+        android:background="@color/colorPrimary"
         app:titleTextColor="#FFFFFF"
 
         >
@@ -21,11 +21,11 @@
             android:id="@+id/user_search_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconifiedByDefault="false"
-            android:background="@drawable/search_edit"
-            android:layout_marginRight="20dp"
             android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/search_edit"
+            app:iconifiedByDefault="false"
             app:queryHint="搜素订单" />
 
 
@@ -39,8 +39,6 @@
         android:dividerHeight="10dp"
 
         />
-
-
 
 
 </LinearLayout>

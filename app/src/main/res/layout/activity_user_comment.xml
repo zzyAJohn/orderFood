@@ -9,92 +9,81 @@
     tools:context=".user.activity.comment.UserCommentActivity">
 
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/comment_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F24960"
-        app:title="商品评论"
-        app:titleTextColor="#FFFFFF"
+        android:background="@color/colorPrimary"
         app:navigationIcon="@drawable/back"
-        />
-
-
-
-
-
+        app:title="商品评论"
+        app:titleTextColor="#FFFFFF" />
 
 
     <EditText
         android:id="@+id/comment_con_user"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:textSize="20sp"
-        android:hint="请输入评论内容"
-        android:paddingLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="@null"
-        />
+        android:hint="请输入评论内容"
+        android:paddingLeft="20dp"
+        android:textSize="20sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginLeft="5dp"
-        android:padding="10dp"
-        >
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <RadioButton
             android:id="@+id/comment_one_a"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:gravity="center"
-            android:button="@null"
-            android:background="@drawable/xx"
-            android:textStyle="bold"
-            android:stateListAnimator="@null"
             android:layout_marginRight="5dp"
-            />
+            android:background="@drawable/xx"
+            android:button="@null"
+            android:gravity="center"
+            android:stateListAnimator="@null"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/comment_one_b"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:gravity="center"
-            android:button="@null"
-
-            android:background="@drawable/xx"
-            android:textStyle="bold"
-            android:stateListAnimator="@null"
             android:layout_marginRight="5dp"
-            />
+            android:background="@drawable/xx"
+
+            android:button="@null"
+            android:gravity="center"
+            android:stateListAnimator="@null"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/comment_one_c"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:gravity="center"
-            android:button="@null"
-
-            android:background="@drawable/xx"
-            android:textStyle="bold"
-            android:stateListAnimator="@null"
             android:layout_marginRight="5dp"
-            />
+            android:background="@drawable/xx"
+
+            android:button="@null"
+            android:gravity="center"
+            android:stateListAnimator="@null"
+            android:textStyle="bold" />
 
 
         <RadioButton
             android:id="@+id/comment_one_d"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:gravity="center"
-            android:button="@null"
-
-            android:background="@drawable/xx"
-            android:textStyle="bold"
-            android:stateListAnimator="@null"
             android:layout_marginRight="5dp"
+            android:background="@drawable/xx"
+
+            android:button="@null"
+            android:gravity="center"
+            android:stateListAnimator="@null"
+            android:textStyle="bold"
 
             />
 
@@ -103,12 +92,12 @@
             android:id="@+id/comment_one_e"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:gravity="center"
-            android:button="@null"
-            android:background="@drawable/wxx"
-            android:textStyle="bold"
-            android:stateListAnimator="@null"
             android:layout_marginRight="10dp"
+            android:background="@drawable/wxx"
+            android:button="@null"
+            android:gravity="center"
+            android:stateListAnimator="@null"
+            android:textStyle="bold"
 
             />
 
@@ -116,8 +105,7 @@
             android:id="@+id/comment_one_f"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="非常满意"
-            />
+            android:text="非常满意" />
 
     </LinearLayout>
 
@@ -137,38 +125,30 @@
             android:id="@+id/comment_pz_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="拍照"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            />
+            android:text="拍照" />
 
         <Button
             android:id="@+id/comment_xc_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="相册"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            />
+            android:text="相册" />
     </LinearLayout>
 
 
     <Button
         android:id="@+id/comment_put_user"
+        style="@style/MyBtnStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="发表评论"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-
-
-        android:textStyle="bold"
-
-        android:background="#F24960"
-        android:textColor="#FFFFFF"
-        android:foreground="?android:attr/selectableItemBackground"
-        />
+        android:text="发表评论"
+        android:textStyle="bold" />
 
 
 </LinearLayout>
