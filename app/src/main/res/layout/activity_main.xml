@@ -37,16 +37,15 @@
 
     <EditText
         android:id="@+id/et_id"
-
+        style="@style/MyEditStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:hint="请输入账号" />
 
     <EditText
         android:id="@+id/et_pwd"
+        style="@style/MyEditStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="请输入密码"
         android:inputType="textPassword" />
@@ -55,6 +54,7 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <RadioButton
@@ -74,6 +74,29 @@
 
     </RadioGroup>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_remember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="记住密码" />
+
+        <CheckBox
+            android:id="@+id/cb_auto_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="自动登录" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/bt_login"

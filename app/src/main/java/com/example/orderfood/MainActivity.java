@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -22,9 +24,10 @@ import com.example.orderfood.user.activity.UserManageActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etId, etPwd;
-    RadioButton rbBusiness, rbUser;
-    Button btLogin, btRegisterBusiness, btRegisterUser;
+    private EditText etId, etPwd;
+    private RadioButton rbBusiness, rbUser;
+    private Button btLogin, btRegisterBusiness, btRegisterUser;
+    private CheckBox cbRemember, cbAutoLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,27 @@ public class MainActivity extends AppCompatActivity {
 
         //初始化数据
         initData();
+        // TODO: 2024/5/5 下面的方法待实现
+/*
+        //如果勾选自动登录，则必须勾选记住密码
+        cbAutoLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    cbRemember.setChecked(true);
+                }
+            }
+        });
+
+        //如果取消记住密码，则必须取消自动登录
+        cbRemember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    cbAutoLogin.setChecked(false);
+                }
+            }
+        });*/
     }
 
     private void initData() {
@@ -43,6 +67,46 @@ public class MainActivity extends AppCompatActivity {
         DBUtil dbUtil = new DBUtil(MainActivity.this);
         SQLiteDatabase db = dbUtil.getWritableDatabase();//获取到得数据库连接
         DBUtil.db = db;
+
+        /*
+        //判断是否记住密码
+        //取数据
+        SharedPreferences spRecord = getSharedPreferences("spRecord", MODE_PRIVATE);
+
+        //先取是否自动登录
+        boolean isAutoLogin = spRecord.getBoolean("isAutoLogin", false);
+        //再取是否商家还是用户
+        boolean isBusiness = spRecord.getBoolean("isBusiness", false);
+
+        //如果自动登录
+        if (isAutoLogin) {
+
+            //intent传参
+            Intent intent = new Intent(MainActivity.this, BusinessActivity.class);
+            String account = spRecord.getString("account", "");
+            intent.putExtra("account", account);
+
+            startActivity(intent);
+            //从栈中销毁登录页面
+//            LoginActivity.this.finish();
+
+        }
+
+        //取是否记住密码
+        boolean isRemember = spRecord.getBoolean("isRemember", false);
+        //如果记住密码了
+        if (isRemember) {
+            //取账号和密码
+            String account = spRecord.getString("account", "");
+            String password = spRecord.getString("password", "");
+            //配置到文本框里
+            etId.setText(account);
+            etPwd.setText(password);
+            cbRemember.setChecked(true);
+//        etContent.setSelection(content.length()); //光标最后
+
+        }*/
+
     }
 
     //初始化控件
