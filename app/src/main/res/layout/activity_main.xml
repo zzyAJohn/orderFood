@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal|center_vertical"
     android:orientation="vertical"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
+
+
     tools:context=".MainActivity">
 
 
@@ -35,26 +35,63 @@
         android:textSize="15sp" />
 
 
-    <EditText
-        android:id="@+id/et_id"
-        style="@style/MyEditStyle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="50dp"
-        android:hint="请输入账号" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/et_pwd"
-        style="@style/MyEditStyle"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账号:"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/et_id"
+            style="@style/MyEditStyle"
+            android:layout_width="match_parent"
+
+            android:hint="请输入账号" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:hint="请输入密码"
-        android:inputType="textPassword" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密码:"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/et_pwd"
+            style="@style/MyEditStyle"
+            android:layout_width="match_parent"
+
+            android:hint="请输入密码"
+            android:inputType="textPassword" />
+
+    </LinearLayout>
 
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal">
 
         <RadioButton
