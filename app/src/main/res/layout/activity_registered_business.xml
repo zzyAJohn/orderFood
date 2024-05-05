@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-xmlns:tools="http://schemas.android.com/tools"
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".activity.RegisteredBusiness"
-android:orientation="vertical"
-android:layout_gravity="center_horizontal|center_vertical"
-    >
-
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/reg_business_toolbar"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#F24960"
-    app:title="注册外卖商家"
-    app:titleTextColor="#FFFFFF"
-    app:navigationIcon="@drawable/back"
-    />
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:orientation="vertical"
+    tools:context=".activity.RegisteredBusiness">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/reg_business_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/back"
+        app:title="注册外卖商家"
+        app:titleTextColor="#FFFFFF" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,8 +24,8 @@ android:layout_gravity="center_horizontal|center_vertical"
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
             android:paddingLeft="30dp"
             android:paddingRight="30dp">
 
@@ -36,37 +33,33 @@ android:layout_gravity="center_horizontal|center_vertical"
                 android:id="@+id/reg_business_tx"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:src="@drawable/upimg"
                 android:layout_marginTop="45dp"
-                />
+                android:src="@drawable/upimg" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="订 餐 外 卖"
-                android:textStyle="bold"
-                android:textSize="20sp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="校 园 点 餐"
                 android:textColor="#000000"
-                android:gravity="center_horizontal|center_vertical"
-                />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="让生活变得简单，让美食送上家门"
-                android:textSize="15sp"
+                android:layout_marginTop="5dp"
                 android:gravity="center_horizontal|center_vertical"
-                />
-
+                android:text="让生活变得简单，让美食送上家门"
+                android:textSize="15sp" />
 
 
             <EditText
                 android:id="@+id/reg_business_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="请输入店铺账号"
                 android:layout_marginTop="50dp"
+                android:hint="请输入店铺账号"
 
                 />
 
@@ -74,77 +67,55 @@ android:layout_gravity="center_horizontal|center_vertical"
                 android:id="@+id/reg_business_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:layout_marginTop="10dp"
                 android:hint="请输入店铺密码"
-                />
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/reg_business_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="请输入店铺名称"
                 android:layout_marginTop="10dp"
-                />
-
+                android:hint="请输入店铺名称" />
 
 
             <EditText
                 android:id="@+id/reg_business_des"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:drawable/edit_text"
+                android:gravity="top"
+
                 android:hint="请输入店铺描述"
                 android:inputType="textMultiLine"
-                android:layout_marginTop="10dp"
-
-                android:gravity="top"
-                android:minLines="5"
                 android:maxLines="5"
-                android:scrollbars="vertical"
-                android:background="@android:drawable/edit_text"
-                />
+                android:minLines="5"
+                android:scrollbars="vertical" />
 
             <EditText
                 android:id="@+id/reg_business_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="请输入店铺类型"
                 android:layout_marginTop="10dp"
                 android:gravity="top"
-                />
+                android:hint="请输入店铺类型" />
 
 
             <Button
                 android:id="@+id/reg_business_reg"
+                style="@style/MyBtnStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="#F24960"
-                android:textColor="#FFFFFF"
                 android:text="注册商家"
-                android:foreground="?android:attr/selectableItemBackground"
                 />
-
-
 
 
         </LinearLayout>
 
 
-
-
-
-
-
     </ScrollView>
-
-
-
-
-
-
-
-
 
 
 </LinearLayout>

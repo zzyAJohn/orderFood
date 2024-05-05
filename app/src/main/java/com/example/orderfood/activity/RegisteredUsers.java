@@ -58,9 +58,8 @@ public class RegisteredUsers extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //在主界面直接跳转到对应界面
-                Intent intent=new Intent(RegisteredUsers.this, MainActivity.class);
-                startActivity(intent);
+                //销毁注册页面，防止栈循环
+                RegisteredUsers.this.finish();
             }
         });
         //上面是实现返回功能

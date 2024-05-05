@@ -14,7 +14,7 @@ android:layout_gravity="center_horizontal|center_vertical"
         android:id="@+id/reg_user_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F24960"
+        android:background="@color/colorPrimary"
         app:title="注册外卖用户"
         app:titleTextColor="#FFFFFF"
         app:navigationIcon="@drawable/back"
@@ -44,7 +44,7 @@ android:layout_gravity="center_horizontal|center_vertical"
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="订 餐 外 卖"
+                android:text="校 园 点 餐"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="#000000"
@@ -121,7 +121,7 @@ android:layout_gravity="center_horizontal|center_vertical"
                 android:id="@+id/reg_user_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="请输入家庭住址"
+                android:hint="请输入住址"
                 android:layout_marginTop="10dp"
 
                 />
@@ -140,16 +140,9 @@ android:layout_gravity="center_horizontal|center_vertical"
                 android:id="@+id/reg_user_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="#F24960"
-                android:textColor="#FFFFFF"
+                style="@style/MyBtnStyle"
                 android:text="注册用户"
-                android:foreground="?android:attr/selectableItemBackground"
                 />
-
-
-
-
         </LinearLayout>
 
 
