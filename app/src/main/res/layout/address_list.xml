@@ -9,16 +9,16 @@
     >
 
 
+    <!--表示收货地址的内容-->
     <TextView
 
         android:id="@+id/a_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="江苏省 南京市，牛首山，15号"
+        android:text="地址"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <!--表示收货地址的内容-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="小铭先生"
+            android:text="用户名"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
             android:id="@+id/a_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1654654546"
+            android:text="手机号"
             android:textSize="20sp"
             android:textStyle="bold" />
 

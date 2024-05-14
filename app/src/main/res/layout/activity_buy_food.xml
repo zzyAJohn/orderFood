@@ -39,7 +39,7 @@
             android:layout_toRightOf="@+id/user_food_business_tx_one"
             android:gravity="center_horizontal|center_vertical"
 
-            android:text="小明店铺"
+            android:text="店铺名"
             android:textColor="#5A5A5A"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -57,7 +57,7 @@
                 android:layout_margin="7dp"
                 android:layout_toRightOf="@+id/user_food_business_tx"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="简介：这是一个很好的店铺"
+                android:text="店铺简介"
                 android:textColor="#CCFFFFFF"
                 android:textStyle="bold|italic" />
         </LinearLayout>

@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="我我我我我我我我我我我我我我我"
+            android:text="地址"
             android:textColor="#434343"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -39,8 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
-
-                android:text="小铭先生"
+                android:text="用户名"
                 android:textSize="12sp" />
 
             <TextView
@@ -48,8 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="1654654546"
-
+                android:text="手机号"
                 android:textSize="12sp" />
 
 

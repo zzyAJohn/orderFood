@@ -25,9 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
-            android:orientation="vertical"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp">
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/add_business_tx"
@@ -46,37 +44,78 @@
                 android:textStyle="bold" />
 
 
-            <EditText
-                android:id="@+id/add_business_name"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:hint="请输入商品名字"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品:"
+                    android:textSize="25sp" />
 
-            <EditText
-                android:id="@+id/add_business_price"
+                <EditText
+                    android:id="@+id/add_business_name"
+                    style="@style/MyEditStyle"
+                    android:layout_width="match_parent"
+                    android:hint="请输入商品名字" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="top"
-                android:hint="请输入商品价格"
-                android:inputType="numberDecimal" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/add_business_des"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="价格:"
+                    android:textSize="25sp" />
+
+                <EditText
+                    android:id="@+id/add_business_price"
+                    style="@style/MyEditStyle"
+                    android:layout_width="match_parent"
+                    android:hint="请输入商品价格"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@android:drawable/edit_text"
-                android:gravity="top"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                android:hint="请输入商品描述"
-                android:inputType="textMultiLine"
-                android:maxLines="5"
-                android:minLines="5"
-                android:scrollbars="vertical" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="描述:"
+                    android:textSize="25sp" />
+
+                <EditText
+                    android:id="@+id/add_business_des"
+                    style="@style/MyEditStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:hint="请输入商品描述"
+                    android:inputType="textMultiLine"
+                    android:maxLines="5"
+                    android:minLines="5"
+                    android:scrollbars="vertical" />
+            </LinearLayout>
 
 
             <Button
@@ -84,9 +123,7 @@
                 style="@style/MyBtnStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="添加商品" />
-
 
         </LinearLayout>
 

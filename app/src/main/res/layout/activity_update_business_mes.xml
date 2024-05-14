@@ -38,40 +38,75 @@
             android:layout_marginTop="45dp"
             android:src="@drawable/upimg" />
 
-        <EditText
-            android:id="@+id/update_business_mes_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/circle_background"
-            android:hint="请输入店铺名称"
-            android:padding="12dp" />
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="店铺:"
+                android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/update_business_mes_des"
+            <EditText
+                android:id="@+id/update_business_mes_name"
+                style="@style/MyEditStyle"
+                android:layout_width="match_parent"
+                android:background="@drawable/circle_background"
+                android:hint="请输入店铺名称" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@android:drawable/edit_text"
-            android:gravity="top"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            android:hint="请输入店铺描述"
-            android:inputType="textMultiLine"
-            android:maxLines="5"
-            android:minLines="5"
-            android:padding="12dp"
-            android:scrollbars="vertical" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="描述:"
+                android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/update_business_mes_type"
+            <EditText
+                android:id="@+id/update_business_mes_des"
+                style="@style/MyEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/edit_text"
+                android:gravity="top"
+                android:hint="请输入店铺描述"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:minLines="5"
+                android:padding="12dp"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/circle_background"
-            android:gravity="top"
-            android:hint="请输入店铺类型"
-            android:padding="12dp" />
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地点:"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/update_business_mes_type"
+                style="@style/MyEditStyle"
+                android:layout_width="match_parent"
+                android:background="@drawable/circle_background"
+                android:hint="请输入店铺地点" />
+        </LinearLayout>
 
 
         <Button
