@@ -57,7 +57,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
 
-            android:text="下单时间：2023-10-18 18:23"
+            android:text="下单时间：2024-5-11 18:23"
             android:textStyle="bold"
 
             />
