@@ -28,40 +28,78 @@
         android:paddingRight="30dp">
 
 
-        <EditText
-            android:id="@+id/update_peo_up"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/circle_background"
-            android:hint="请输入收货人！"
-            android:padding="12dp" />
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收货:"
+                android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/update_address_up"
+            <EditText
+                android:id="@+id/update_peo_up"
+                style="@style/MyEditStyle"
+                android:layout_width="match_parent"
+                android:background="@drawable/circle_background"
+                android:hint="请输入收货人！" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@android:drawable/edit_text"
-            android:gravity="top"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            android:hint="请输入收货地址！"
-            android:inputType="textMultiLine"
-            android:maxLines="5"
-            android:minLines="5"
-            android:padding="12dp"
-            android:scrollbars="vertical" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地址:"
+                android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/update_phone_up"
+            <EditText
+                android:id="@+id/update_address_up"
+                style="@style/MyEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/edit_text"
+                android:gravity="top"
+                android:hint="请输入收货地址！"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:minLines="5"
+                android:padding="12dp"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/circle_background"
-            android:gravity="top"
-            android:hint="请输入联系方式"
-            android:padding="12dp" />
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电话:"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/update_phone_up"
+                style="@style/MyEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_background"
+                android:gravity="top"
+                android:hint="请输入联系方式"
+                android:padding="12dp" />
+        </LinearLayout>
 
 
         <Button
