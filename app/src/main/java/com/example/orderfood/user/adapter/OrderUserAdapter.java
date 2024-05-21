@@ -54,12 +54,13 @@ public class OrderUserAdapter extends ArrayAdapter<OrderBean> {
         OrderBean orderBean=list.get(position);
 
         ImageView tx=convertView.findViewById(R.id.business_order_tx_list);//获取头像
-        TextView userName=convertView.findViewById(R.id.business_order_user_name);//获取头像
-        TextView time=convertView.findViewById(R.id.business_order_user_time);//
+        TextView userName=convertView.findViewById(R.id.business_order_user_name);//获取用户名
+        TextView time=convertView.findViewById(R.id.business_order_user_time);//订单时间
         TextView ad=convertView.findViewById(R.id.order_Address_text);//收获地址
         TextView phone=convertView.findViewById(R.id. order_phone_text);//联系方式
 
         TextView peo=convertView.findViewById(R.id.order_accept_text);//联系方式
+        TextView tvOrderNum=convertView.findViewById(R.id.tv_order_num);//取餐码
 
 
 
@@ -71,12 +72,14 @@ public class OrderUserAdapter extends ArrayAdapter<OrderBean> {
 //        userName.setText(orderBean.getS_order_user_name());
 
         // s_order_business
-        String uid=orderBean.getS_order_business();//商家DI
+        String uid=orderBean.getS_order_business();//商家ID
         BusinessBean bu = UserDao.getBusinessUser(uid);
         Tools.showImage(tx,bu.getS_img(),getContext());//商家图片
-        userName.setText(bu.getS_name());//商家名称
+        userName.setText(bu.getS_name());//
 
 
+
+        tvOrderNum.setText(orderBean.getS_order_id());
         time.setText(orderBean.getS_order_time());
         peo.setText(addressS[0]);
         ad.setText(addressS[1]);

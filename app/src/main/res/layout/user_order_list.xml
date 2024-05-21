@@ -281,6 +281,27 @@
         android:gravity="end"
         android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="取餐码："
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_order_num"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="80dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="1"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            />
+
         <Button
             android:id="@+id/cancel_order_m"
             android:layout_width="wrap_content"

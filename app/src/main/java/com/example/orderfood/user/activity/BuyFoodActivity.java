@@ -302,7 +302,7 @@ public class BuyFoodActivity extends AppCompatActivity {
                            UserBean userDD = UserDao.getUser(account);
 
 
-                           String s_order_id=Tools.getUUID();
+//                           String s_order_id=Tools.getUUID();
                            String s_order_time=Tools.getCurrentTime();
                            String s_order_user_id=account;
                            String s_order_user_name=userDD.getS_name();
@@ -336,7 +336,7 @@ public class BuyFoodActivity extends AppCompatActivity {
                            if(!s_order_adress.equals("1")){
 
 
-                              int a= OrderDao.addOrder(s_order_id,s_order_time,s_order_user_id,s_order_user_name,s_order_user_img,s_order_business,s_order_business_name,
+                              int a= OrderDao.addOrder(null,s_order_time,s_order_user_id,s_order_user_name,s_order_user_img,s_order_business,s_order_business_name,
                                        s_order_business_img,s_order_business_id,s_order_sta,s_order_adress);
 
 

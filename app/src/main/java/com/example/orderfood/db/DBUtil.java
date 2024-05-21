@@ -105,7 +105,7 @@ public class DBUtil extends SQLiteOpenHelper {
 //        db.execSQL("insert into d_food (s_food_id,s_business_id,s_food_name,s_food_des,s_food_price,s_food_img) values(?,?,?,?,?,?)", da2);
         //4.创建订单表
         db.execSQL("drop table if exists d_orders");//如果这表存在则删除
-        db.execSQL("create table d_orders(s_order_id varchar(20)primary key ," +//订单ID
+        db.execSQL("create table d_orders(s_order_id integer primary key autoincrement," +//订单ID
                 "s_order_time varchar(20) ," +//购买时间
                 "s_order_user_id varchar(20)," +//用户ID
                 "s_order_user_name varchar(20)," +//用户昵称
