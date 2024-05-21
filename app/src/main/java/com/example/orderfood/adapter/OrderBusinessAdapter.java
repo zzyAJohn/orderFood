@@ -2,11 +2,7 @@ package com.example.orderfood.adapter;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,24 +11,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.example.orderfood.R;
-import com.example.orderfood.activity.OrderActivity;
-import com.example.orderfood.activity.UpdateGoodActivity;
 import com.example.orderfood.bean.OrderBean;
 import com.example.orderfood.bean.OrderDetail;
 import com.example.orderfood.dao.OrderDao;
-import com.example.orderfood.dao.UserDao;
 import com.example.orderfood.tools.Tools;
 
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class OrderBusinessAdapter extends ArrayAdapter<OrderBean> {
 

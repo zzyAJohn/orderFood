@@ -1,43 +1,24 @@
 package com.example.orderfood.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.ContextMenu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.orderfood.MainActivity;
 import com.example.orderfood.R;
-import com.example.orderfood.adapter.FoodAdapter;
 import com.example.orderfood.bean.BusinessBean;
-import com.example.orderfood.bean.FoodBean;
-import com.example.orderfood.dao.FoodDao;
 import com.example.orderfood.dao.UserDao;
 import com.example.orderfood.listener.ButtonColorListener;
-
-import java.util.ArrayList;
-
-
-
-
 
 
 public class BusinessMyActivity extends AppCompatActivity {
@@ -135,7 +116,7 @@ public class BusinessMyActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(BusinessMyActivity.this,AddGoodActivity.class);
+                Intent intent=new Intent(BusinessMyActivity.this, AddFoodActivity.class);
                 startActivity(intent);
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal|center_vertical"
     android:orientation="vertical"
-    tools:context=".activity.AddGoodActivity">
+    tools:context=".activity.AddFoodActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/add_business_toolbar"

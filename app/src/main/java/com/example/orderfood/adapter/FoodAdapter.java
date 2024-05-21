@@ -15,13 +15,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.orderfood.R;
-import com.example.orderfood.activity.BusinessActivity;
-import com.example.orderfood.activity.UpdateGoodActivity;
+import com.example.orderfood.activity.UpdateFoodActivity;
 import com.example.orderfood.bean.FoodBean;
 import com.example.orderfood.dao.UserDao;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class FoodAdapter extends ArrayAdapter<FoodBean> {
 
@@ -76,7 +74,7 @@ public class FoodAdapter extends ArrayAdapter<FoodBean> {
             public void onClick(View view) {
 
                 //需要将ID传过去
-                Intent intent=new Intent(getContext(), UpdateGoodActivity.class);
+                Intent intent=new Intent(getContext(), UpdateFoodActivity.class);
                 intent.putExtra("id",foodBean.getS_food_id());
                 getContext().startActivity(intent);//打开目标界面
 

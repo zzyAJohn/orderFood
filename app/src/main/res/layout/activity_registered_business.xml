@@ -155,14 +155,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="类型:"
+                    android:text="地址:"
                     android:textSize="25sp" />
 
                 <EditText
                     android:id="@+id/reg_business_type"
                     style="@style/MyEditStyle"
                     android:layout_width="match_parent"
-                    android:hint="请输入店铺类型" />
+                    android:hint="请输入店铺地址" />
             </LinearLayout>
 
 

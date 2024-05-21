@@ -7,14 +7,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -80,7 +75,7 @@ public class BusinessActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(BusinessActivity.this,AddGoodActivity.class);
+                Intent intent=new Intent(BusinessActivity.this, AddFoodActivity.class);
                 startActivity(intent);
 
 
@@ -229,7 +224,7 @@ public class BusinessActivity extends AppCompatActivity {
         //实现在数据库层面上进行删除功能
         FoodBean temp = adapter.getItem(position);
         //需要将ID传过去
-        Intent intent=new Intent(BusinessActivity.this,UpdateGoodActivity.class);
+        Intent intent=new Intent(BusinessActivity.this, UpdateFoodActivity.class);
         intent.putExtra("id",temp.getS_food_id());
         startActivity(intent);
 

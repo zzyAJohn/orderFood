@@ -8,21 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import com.example.orderfood.MainActivity;
 import com.example.orderfood.R;
-import com.example.orderfood.activity.AddGoodActivity;
-import com.example.orderfood.activity.BusinessActivity;
-import com.example.orderfood.activity.BusinessMyActivity;
-import com.example.orderfood.activity.UpdateBusinessMesActivity;
-import com.example.orderfood.activity.UpdatePwdActivity;
-import com.example.orderfood.adapter.UserFoodAdapter;
-import com.example.orderfood.bean.FoodBean;
 import com.example.orderfood.bean.UserBean;
 import com.example.orderfood.dao.UserDao;
 import com.example.orderfood.tools.Tools;
@@ -31,8 +22,6 @@ import com.example.orderfood.user.activity.UpdateUserMesActivity;
 import com.example.orderfood.user.activity.UserAddressActivity;
 import com.example.orderfood.user.activity.UserManageActivity;
 import com.example.orderfood.user.activity.UserMyOrderActivity;
-
-import java.util.ArrayList;
 
 /**
  * 这个是咱们用户购买的首页

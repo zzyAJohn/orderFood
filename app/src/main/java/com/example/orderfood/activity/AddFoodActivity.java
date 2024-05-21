@@ -21,7 +21,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.orderfood.MainActivity;
 import com.example.orderfood.R;
 import com.example.orderfood.dao.UserDao;
 import com.example.orderfood.tools.Tools;
@@ -29,13 +28,13 @@ import com.example.orderfood.tools.Tools;
 import java.io.ByteArrayOutputStream;
 import java.util.UUID;
 
-public class AddGoodActivity extends AppCompatActivity {
+public class AddFoodActivity extends AppCompatActivity {
     private ActivityResultLauncher<String> getContentLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_good);
+        setContentView(R.layout.activity_add_food);
         //实现菜单条的返回功能
         Toolbar toolbar = this.findViewById(R.id.add_business_toolbar);
         setSupportActionBar(toolbar);
@@ -43,7 +42,7 @@ public class AddGoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //在主界面直接跳转到对应界面
-                Intent intent = new Intent(AddGoodActivity.this, BusinessActivity.class);
+                Intent intent = new Intent(AddFoodActivity.this, BusinessActivity.class);
                 startActivity(intent);
             }
         });
@@ -76,7 +75,7 @@ public class AddGoodActivity extends AppCompatActivity {
                             img.setImageURI(uri);
 
                         } else {
-                            Toast.makeText(AddGoodActivity.this, "未选择商品图片", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddFoodActivity.this, "未选择商品图片", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -102,11 +101,11 @@ public class AddGoodActivity extends AppCompatActivity {
 
 
                 if (idT.isEmpty()) {
-                    Toast.makeText(AddGoodActivity.this, "请输入商品名字", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddFoodActivity.this, "请输入商品名字", Toast.LENGTH_SHORT).show();
                 } else if (priceT.isEmpty()) {
-                    Toast.makeText(AddGoodActivity.this, "请输入商品价格", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddFoodActivity.this, "请输入商品价格", Toast.LENGTH_SHORT).show();
                 } else if (desT.isEmpty()) {
-                    Toast.makeText(AddGoodActivity.this, "请输入商品描述", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddFoodActivity.this, "请输入商品描述", Toast.LENGTH_SHORT).show();
                 }
                 if (drawable instanceof BitmapDrawable) {
 
@@ -115,7 +114,7 @@ public class AddGoodActivity extends AppCompatActivity {
                     // 检查Bitmap是否与默认图片相同
                     if (bitmap.sameAs(((BitmapDrawable) defaultDrawable).getBitmap())) {
                         //就代表执行的是默认的
-                        Toast.makeText(AddGoodActivity.this, "请点击图片进行添加头像", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddFoodActivity.this, "请点击图片进行添加头像", Toast.LENGTH_SHORT).show();
                     } else {
 
 
@@ -127,7 +126,7 @@ public class AddGoodActivity extends AppCompatActivity {
 
 
                         String klmPath = Tools.getImagePath() + "/" + idT + "A.png";//先将图片保存到磁盘，然后只保留路径
-                        Tools.saveByteArrayAsPng(imageByteArray, klmPath, AddGoodActivity.this);
+                        Tools.saveByteArrayAsPng(imageByteArray, klmPath, AddFoodActivity.this);
 
 
                         //实现自动生成商品的ID内容
@@ -139,9 +138,9 @@ public class AddGoodActivity extends AppCompatActivity {
                         Long a = UserDao.addGood(cid, account, idT, desT, priceT, klmPath);
 
                         if (a >= 1) {
-                            Toast.makeText(AddGoodActivity.this, "添加商品成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddFoodActivity.this, "添加商品成功", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(AddGoodActivity.this, "添加商品失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddFoodActivity.this, "添加商品失败", Toast.LENGTH_SHORT).show();
                         }
 
                     }

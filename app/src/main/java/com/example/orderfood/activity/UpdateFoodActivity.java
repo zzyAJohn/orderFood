@@ -27,15 +27,11 @@ import android.widget.Toast;
 import com.example.orderfood.R;
 import com.example.orderfood.bean.FoodBean;
 import com.example.orderfood.dao.FoodDao;
-import com.example.orderfood.dao.UserDao;
 import com.example.orderfood.tools.Tools;
-import com.example.orderfood.user.activity.UserAddressActivity;
-import com.example.orderfood.user.activity.comment.UpdateAddressActivity;
 
 import java.io.ByteArrayOutputStream;
-import java.util.UUID;
 
-public class UpdateGoodActivity extends AppCompatActivity {
+public class UpdateFoodActivity extends AppCompatActivity {
 
 
     String foodIdT;
@@ -43,7 +39,7 @@ public class UpdateGoodActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_good);
+        setContentView(R.layout.activity_update_food);
         //实现菜单条的返回功能
         Toolbar toolbar = this.findViewById(R.id.update_business_toolbar);
         setSupportActionBar(toolbar);
@@ -51,7 +47,7 @@ public class UpdateGoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //在主界面直接跳转到对应界面
-                Intent intent=new Intent(UpdateGoodActivity.this, BusinessActivity.class);
+                Intent intent=new Intent(UpdateFoodActivity.this, BusinessActivity.class);
                 startActivity(intent);
             }
         });
@@ -109,7 +105,7 @@ public class UpdateGoodActivity extends AppCompatActivity {
                             img.setImageURI(uri);
 
                         }else{
-                            Toast.makeText(UpdateGoodActivity.this, "未选择商品图片", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateFoodActivity.this, "未选择商品图片", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -136,11 +132,11 @@ public class UpdateGoodActivity extends AppCompatActivity {
 
 
                 if(idT.isEmpty()){
-                    Toast.makeText(UpdateGoodActivity.this, "请输入商品名字", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateFoodActivity.this, "请输入商品名字", Toast.LENGTH_SHORT).show();
                 }else if(priceT.isEmpty()){
-                    Toast.makeText(UpdateGoodActivity.this, "请输入商品价格", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateFoodActivity.this, "请输入商品价格", Toast.LENGTH_SHORT).show();
                 }else if(desT.isEmpty()){
-                    Toast.makeText(UpdateGoodActivity.this, "请输入商品描述", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateFoodActivity.this, "请输入商品描述", Toast.LENGTH_SHORT).show();
                 }if (drawable instanceof BitmapDrawable){
 
                     //向数据库插入数据
@@ -148,7 +144,7 @@ public class UpdateGoodActivity extends AppCompatActivity {
                     // 检查Bitmap是否与默认图片相同
                     if (bitmap.sameAs(((BitmapDrawable) defaultDrawable).getBitmap())) {
                         //就代表执行的是默认的
-                        Toast.makeText(UpdateGoodActivity.this, "请点击图片进行添加头像", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UpdateFoodActivity.this, "请点击图片进行添加头像", Toast.LENGTH_SHORT).show();
                     }else{
 
 
@@ -161,7 +157,7 @@ public class UpdateGoodActivity extends AppCompatActivity {
 
 
                         String klmPath= Tools.getImagePath()+"/"+idT+"A.png";//先将图片保存到磁盘，然后只保留路径
-                        Tools.saveByteArrayAsPng(imageByteArray,klmPath,UpdateGoodActivity.this);
+                        Tools.saveByteArrayAsPng(imageByteArray,klmPath, UpdateFoodActivity.this);
 
 
 
@@ -172,9 +168,9 @@ public class UpdateGoodActivity extends AppCompatActivity {
 
 
                         if(a>=1){
-                            Toast.makeText(UpdateGoodActivity.this, "更改商品成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateFoodActivity.this, "更改商品成功", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(UpdateGoodActivity.this, "更改商品失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateFoodActivity.this, "更改商品失败", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -202,7 +198,7 @@ public class UpdateGoodActivity extends AppCompatActivity {
 
             FoodDao.delFood(foodIdT);
 
-            Intent intent=new Intent(UpdateGoodActivity.this, BusinessActivity.class);
+            Intent intent=new Intent(UpdateFoodActivity.this, BusinessActivity.class);
             startActivity(intent);
 
         }

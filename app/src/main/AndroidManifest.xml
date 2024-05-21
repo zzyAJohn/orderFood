@@ -70,10 +70,10 @@
             android:name=".activity.BusinessMyActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.UpdateGoodActivity"
+            android:name=".activity.UpdateFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.AddGoodActivity"
+            android:name=".activity.AddFoodActivity"
             android:exported="false" />
         <activity
             android:name=".activity.BusinessActivity"

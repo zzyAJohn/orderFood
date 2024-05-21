@@ -2,8 +2,6 @@ package com.example.orderfood.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -12,23 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.example.orderfood.R;
-import com.example.orderfood.activity.UpdateGoodActivity;
 import com.example.orderfood.bean.FoodBean;
 import com.example.orderfood.dao.UserDao;
-import com.example.orderfood.user.activity.BuyFoodActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class FoodBuyAdapter extends ArrayAdapter<FoodBean> {
 

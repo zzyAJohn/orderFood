@@ -14,9 +14,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.example.orderfood.MainActivity;
 import com.example.orderfood.R;
-import com.example.orderfood.activity.UpdateGoodActivity;
 import com.example.orderfood.bean.BusinessBean;
 import com.example.orderfood.bean.CommentBean;
 import com.example.orderfood.bean.FoodBean;
@@ -24,7 +22,6 @@ import com.example.orderfood.dao.CommentDao;
 import com.example.orderfood.dao.UserDao;
 import com.example.orderfood.tools.Tools;
 import com.example.orderfood.user.activity.BuyFoodActivity;
-import com.example.orderfood.user.activity.UserManageActivity;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

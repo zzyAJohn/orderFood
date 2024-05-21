@@ -43,11 +43,11 @@ public class DBUtil extends SQLiteOpenHelper {
         String filePath = Tools.getImagePath() + "/" + uuid + "tx.png";
         Tools.saveByteArrayAsPng(tx, filePath, context);
 
-        //创建商家表
+        //1.创建商家表
         db.execSQL("drop table if exists d_business");//如果这表存在则删除
-        db.execSQL("create table d_business(s_id varchar(20) primary key," +//账号
+        db.execSQL("create table d_business(s_id varchar(20) primary key," +//商家ID
                 "s_pwd varchar(20)," +//密码
-                "s_name varchar(20)," +//昵称
+                "s_name varchar(20)," +//商家名
                 "s_describe varchar(200)," +//描述
                 "s_type varchar(20)," +//地址
                 "s_img varchar(255))");//头像
@@ -55,11 +55,11 @@ public class DBUtil extends SQLiteOpenHelper {
         UserDao.addBusiness(db, "zhujiaofan", "123456", "猪脚饭", "新鲜猪脚！！！", "二食堂一楼", filePath);
         UserDao.addBusiness(db, "tianpin", "123456", "甜品", "我超甜！！！", "二食堂一楼", filePath);
 
-        //创建用户表
+        //2.创建用户表
         db.execSQL("drop table if exists d_user");//如果这表存在则删除
-        db.execSQL("create table d_user(s_id varchar(20) primary key," +//店铺ID
+        db.execSQL("create table d_user(s_id varchar(20) primary key," +//账号
                 "s_pwd varchar(20)," +//密码
-                "s_name varchar(20)," +//店铺名
+                "s_name varchar(20)," +//昵称
                 "s_sex varchar(200)," +//性别
                 "s_address varchar(20)," +//地址
                 "s_phone varchar(20)," +//联系方式
@@ -68,11 +68,11 @@ public class DBUtil extends SQLiteOpenHelper {
         UserDao.addUser(db, "wc", "123456", "吃货吴四", "男", "辽宁省沈阳市", "13011223344", filePath);
 
 
-        //创建商品表
+        //3.创建商品表
         db.execSQL("drop table if exists d_food");//如果这表存在则删除
         db.execSQL("create table d_food(s_food_id varchar(20)primary key ," +//食物ID
-                "s_business_id varchar(20) ," +//店铺ID
-                "s_food_name varchar(20)," +//食物名字
+                "s_business_id varchar(20) ," +//商家ID
+                "s_food_name varchar(20)," +//食物名
                 "s_food_des varchar(200)," +//食物描述
                 "s_food_price varchar(20)," +//食物价格
                 "s_food_img varchar(255))");//食物图片
@@ -103,16 +103,16 @@ public class DBUtil extends SQLiteOpenHelper {
 //        Tools.saveByteArrayAsPng(getImg(R.drawable.klm), zjPath, context);
 //        String da2[] = {"3", "zhujiaofan", "猪脚饭", "全是猪脚！！！", "13", zjPath};
 //        db.execSQL("insert into d_food (s_food_id,s_business_id,s_food_name,s_food_des,s_food_price,s_food_img) values(?,?,?,?,?,?)", da2);
-        //创建订单表
+        //4.创建订单表
         db.execSQL("drop table if exists d_orders");//如果这表存在则删除
         db.execSQL("create table d_orders(s_order_id varchar(20)primary key ," +//订单ID
                 "s_order_time varchar(20) ," +//购买时间
-                "s_order_user_id varchar(20)," +//购买人账号
-                "s_order_user_name varchar(20)," +//购买人账号名称
-                "s_order_user_img varchar(255)," +//购买人的头像
-                "s_order_business varchar(200)," +//商家账号
-                "s_order_business_name varchar(200)," +//商家账号
-                "s_order_business_img varchar(255)," +//商家
+                "s_order_user_id varchar(20)," +//用户ID
+                "s_order_user_name varchar(20)," +//用户昵称
+                "s_order_user_img varchar(255)," +//用户头像
+                "s_order_business varchar(200)," +//商家ID
+                "s_order_business_name varchar(200)," +//商家名
+                "s_order_business_img varchar(255)," +//商家头像
                 "s_order_business_id varchar(20)," +//订单详情ID
                 "s_order_sta varchar(20)," +//订单状态 他有三个值，默认的是，未结单，接单，取消订单  1处理中，2取消订单  3完成订单
                 "s_order_adress varchar(255))");//收货地址
@@ -125,26 +125,26 @@ public class DBUtil extends SQLiteOpenHelper {
 
 
 
-        //创建地址表
+        //5.创建地址表
         db.execSQL("drop table if exists d_address");//如果这表存在则删除
-        db.execSQL("create table d_address(s_id varchar(30)primary key ," +//收货地址ID
+        db.execSQL("create table d_address(s_id varchar(30)primary key ," +//地址ID
                 "s_user_id varchar(255) ," +//用户ID
                 "s_user_name varchar(255)," +//收货人
                 "s_user_address varchar(255)," +//收货地址
-                "s_phone varchar(255))");//收货联系方式
+                "s_phone varchar(255))");//联系方式
 
         // select * from d_orders
         db.execSQL("insert into d_address values('1','zzy','张某人','校内二舍617','15311223344')");
         db.execSQL("insert into d_address values('2','wc','吴某','校内二舍617','13011223344')");
 
-        //创建订单细节表
+        //6.创建订单细节表
         db.execSQL("drop table if exists d_order_detail");//如果这表存在则删除
         db.execSQL("create table d_order_detail(s_order_business_id varchar(20) ," +//订单ID
                 "s_food_id varchar(20) ," +//食物ID
-                "s_food_name varchar(20)," +//食物名字
-                "s_food_des varchar(200)," +//食物的描述
+                "s_food_name varchar(20)," +//食物名
+                "s_food_des varchar(200)," +//食物描述
                 "s_food_price varchar(20)," +//食物单价
-                "s_food_img varchar(255)," +//食物的图片
+                "s_food_img varchar(255)," +//食物图片
                 "s_food_time varchar(200)," +//购买时间
                 "s_food_num varchar(255))");//购买的数量
 
@@ -162,7 +162,7 @@ public class DBUtil extends SQLiteOpenHelper {
 
 
 
-        //创建评价表
+        //7.创建评价表
         db.execSQL("drop table if exists d_comments");//如果这表存在则删除  代表的是用户表
         //评价管理，默认的是不可以删除评级的内容
         db.execSQL("create table d_comments(s_comment_id varchar(255) primary key ," +//评论ID
