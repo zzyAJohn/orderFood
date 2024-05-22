@@ -19,7 +19,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:background="@drawable/bg">
+
+        android:background="@drawable/keqing">
 
         <ImageView
             android:id="@+id/user_food_business_tx_one"

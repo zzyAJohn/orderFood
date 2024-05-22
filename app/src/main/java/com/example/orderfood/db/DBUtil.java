@@ -147,7 +147,7 @@ public class DBUtil extends SQLiteOpenHelper {
         String img[] = {userPath1, businessPath1};
         String img2[] = {userPath1, businessPath2};
         // select * from d_orders
-        db.execSQL("insert into d_orders values('1','2024-4-07 11:56','zzy','吃货张三',?,'maidanglao','麦当劳',?,'1','1','张某人-校内二舍617-15311223344')", img);
+        db.execSQL("insert into d_orders values('1','2024-4-07 11:56','zzy','吃货张三',?,'maidanglao','麦当劳',?,'1','1','张某人-堂食-15311223344')", img);
         db.execSQL("insert into d_orders values('2','2024-5-07 10:40','zzy','吃货张三',?,'mixuebingcheng','蜜雪冰城',?,'2','1','张某人-校内二舍617-15311223344')", img2);
 //        db.execSQL("insert into d_orders values('3','2024-5-08 11:30','wc','吃货吴四',?,'zhujiaofan','猪脚饭',?,'2','1','吴某人-校内二舍617-13011223344')", img);
 //        db.execSQL("insert into d_orders values('4','2024-5-09 12:00','wc','吃货吴四',?,'zhujiaofan','猪脚饭',?,'2','1','吴某人-校内二舍617-13011223344')", img);
@@ -164,7 +164,8 @@ public class DBUtil extends SQLiteOpenHelper {
 
         // select * from d_orders
         db.execSQL("insert into d_address values('1','zzy','张某人','校内二舍617','15311223344')");
-        db.execSQL("insert into d_address values('2','wc','吴某','校内二舍617','13011223344')");
+        db.execSQL("insert into d_address values('2','zzy','张某人','堂食','15311223344')");
+        db.execSQL("insert into d_address values('3','wc','吴某','校内二舍617','13011223344')");
 
         //6.创建订单细节表
         db.execSQL("drop table if exists d_order_detail");//如果这表存在则删除

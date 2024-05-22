@@ -26,7 +26,7 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/search_edit"
             app:iconifiedByDefault="false"
-            app:queryHint="搜素美食" />
+            app:queryHint="搜索美食" />
 
 
     </androidx.appcompat.widget.Toolbar>

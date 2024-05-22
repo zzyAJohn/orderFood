@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="收  获  人："
+            android:text="收  货  人："
             android:textStyle="bold" />
 
         <TextView
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/order_accept"
             android:layout_marginBottom="5dp"
-            android:text="收获地址："
+            android:text="收货地址："
             android:textStyle="bold" />
 
 

@@ -26,7 +26,7 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/search_edit"
             app:iconifiedByDefault="false"
-            app:queryHint="搜素订单" />
+            app:queryHint="搜索订单" />
 
 
     </androidx.appcompat.widget.Toolbar>

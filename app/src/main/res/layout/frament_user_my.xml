@@ -260,7 +260,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
 
-            android:text="退出账号"
+            android:text="退出软件"
             android:textColor="#333333"
             android:textSize="18sp" />
 
