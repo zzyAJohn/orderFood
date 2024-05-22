@@ -51,9 +51,18 @@ public class DBUtil extends SQLiteOpenHelper {
                 "s_describe varchar(200)," +//描述
                 "s_type varchar(20)," +//地址
                 "s_img varchar(255))");//头像
-        UserDao.addBusiness(db, "ganguo", "123456", "干锅", "好吃的干锅！！！", "二食堂二楼", filePath);
-        UserDao.addBusiness(db, "zhujiaofan", "123456", "猪脚饭", "新鲜猪脚！！！", "二食堂一楼", filePath);
-        UserDao.addBusiness(db, "tianpin", "123456", "甜品", "我超甜！！！", "二食堂一楼", filePath);
+
+        String businessPath1 = Tools.getImagePath() + "/" + uuid + "mdl.jpg";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.mdl), businessPath1, context);
+        UserDao.addBusiness(db, "maidanglao", "123456", "麦当劳", "儿童套餐9.9起！！！", "二食堂二楼", businessPath1);
+
+        String businessPath2 = Tools.getImagePath() + "/" + uuid + "mxbc.jpg";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.mxbc), businessPath2, context);
+        UserDao.addBusiness(db, "mixuebingcheng", "123456", "蜜雪冰城", "你爱我我爱你蜜雪冰城甜蜜蜜！", "二食堂一楼", businessPath2);
+
+//        String Path3 = Tools.getImagePath() + "/" + uuid + "maidanglao.jpg";
+//        Tools.saveByteArrayAsPng(getImg(R.drawable.mdl), Path1, context);
+//        UserDao.addBusiness(db, "tianpin", "123456", "甜品", "我超甜！！！", "二食堂一楼", Path3);
 
         //2.创建用户表
         db.execSQL("drop table if exists d_user");//如果这表存在则删除
@@ -64,8 +73,13 @@ public class DBUtil extends SQLiteOpenHelper {
                 "s_address varchar(20)," +//地址
                 "s_phone varchar(20)," +//联系方式
                 "s_img varchar(255))");//头像
-        UserDao.addUser(db, "zzy", "123456", "吃货张三", "男", "辽宁省沈阳市", "15311223344", filePath);
-        UserDao.addUser(db, "wc", "123456", "吃货吴四", "男", "辽宁省沈阳市", "13011223344", filePath);
+        String userPath1 = Tools.getImagePath() + "/" + uuid + "dadaliya.jpg";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.dadaliya), userPath1, context);
+        UserDao.addUser(db, "zzy", "123456", "吃货张三", "男", "辽宁省沈阳市", "15311223344", userPath1);
+
+        String userPath2 = Tools.getImagePath() + "/" + uuid + "miku.jpg";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.miku), userPath2, context);
+        UserDao.addUser(db, "wc", "123456", "吃货吴四", "男", "辽宁省沈阳市", "13011223344", userPath2);
 
 
         //3.创建商品表
@@ -78,21 +92,35 @@ public class DBUtil extends SQLiteOpenHelper {
                 "s_food_img varchar(255))");//食物图片
 
         //select * from d_food LEFT JOIN
-        String mltPath = Tools.getImagePath() + "/" + uuid + "mlt.png";
-        Tools.saveByteArrayAsPng(getImg(R.drawable.mlt), mltPath, context);
-        String da[] = {"1", "ganguo", "干锅小肉茄子", "小肉+茄子.", "11", mltPath};
+        String hbPath = Tools.getImagePath() + "/" + uuid + "hanbao.png";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.hanbao), hbPath, context);
+        String da[] = {"1", "maidanglao", "汉堡", "荤素搭配，营养美味.", "11", hbPath};
         db.execSQL("insert into d_food (s_food_id,s_business_id,s_food_name,s_food_des,s_food_price,s_food_img) values(?,?,?,?,?,?)", da);
 
-        String klmPath = Tools.getImagePath() + "/" + uuid + "klm.png";
-        Tools.saveByteArrayAsPng(getImg(R.drawable.klm), klmPath, context);
-        String da1[] = {"2", "ganguo", "干锅小肉土豆", "小肉+土豆", "11", klmPath};
+        String stPath = Tools.getImagePath() + "/" + uuid + "shutiao.png";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.shutiao), stPath, context);
+        String da1[] = {"2", "maidanglao", "薯条", "上好的土豆", "8", stPath};
         db.execSQL("insert into d_food (s_food_id,s_business_id,s_food_name,s_food_des,s_food_price,s_food_img) values(?,?,?,?,?,?)", da1);
 
-        String zjPath = Tools.getImagePath() + "/" + uuid + "klm.png";
-        Tools.saveByteArrayAsPng(getImg(R.drawable.klm), zjPath, context);
-        String da2[] = {"3", "zhujiaofan", "猪脚饭", "全是猪脚！！！", "13", zjPath};
+        String st2Path = Tools.getImagePath() + "/" + uuid + "shutiao2.png";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.shutiao_2), st2Path, context);
+        String da2[] = {"3", "maidanglao", "2份薯条", "快乐翻倍！！！", "14", st2Path};
         db.execSQL("insert into d_food (s_food_id,s_business_id,s_food_name,s_food_des,s_food_price,s_food_img) values(?,?,?,?,?,?)", da2);
 
+        String sdPath = Tools.getImagePath() + "/" + uuid + "shengdai.png";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.shengdai), sdPath, context);
+        String da3[] = {"4", "mixuebingcheng", "圣代", "很冰！！！", "6", sdPath};
+        db.execSQL("insert into d_food (s_food_id,s_business_id,s_food_name,s_food_des,s_food_price,s_food_img) values(?,?,?,?,?,?)", da3);
+
+        String tt2Path = Tools.getImagePath() + "/" + uuid + "tiantong2.png";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.tiantong_2), tt2Path, context);
+        String da4[] = {"5", "mixuebingcheng", "2份甜筒", "双倍快乐！！！", "4", tt2Path};
+        db.execSQL("insert into d_food (s_food_id,s_business_id,s_food_name,s_food_des,s_food_price,s_food_img) values(?,?,?,?,?,?)", da4);
+
+        String cmPath = Tools.getImagePath() + "/" + uuid + "caomeiguocha.png";
+        Tools.saveByteArrayAsPng(getImg(R.drawable.caomeiguocha), cmPath, context);
+        String da5[] = {"6", "mixuebingcheng", "草莓果茶", "热爱一百零五度的你~", "8", cmPath};
+        db.execSQL("insert into d_food (s_food_id,s_business_id,s_food_name,s_food_des,s_food_price,s_food_img) values(?,?,?,?,?,?)", da5);
 
 //        String teaSundaePath = Tools.getImagePath() + "/" + uuid + "sundae.png";
 //        Tools.saveByteArrayAsPng(getImg(R.drawable.tea_sundae), teaSundaePath, context);
@@ -116,10 +144,11 @@ public class DBUtil extends SQLiteOpenHelper {
                 "s_order_business_id varchar(20)," +//订单详情ID
                 "s_order_sta varchar(20)," +//订单状态 他有三个值，默认的是，未结单，接单，取消订单  1处理中，2取消订单  3完成订单
                 "s_order_adress varchar(255))");//收货地址
-        String img[] = {filePath, filePath};
+        String img[] = {userPath1, businessPath1};
+        String img2[] = {userPath1, businessPath2};
         // select * from d_orders
-        db.execSQL("insert into d_orders values('1','2024-4-07 11:56','zzy','吃货张三',?,'ganguo','干锅',?,'1','1','张某人-校内二舍617-15311223344')", img);
-        db.execSQL("insert into d_orders values('2','2024-5-07 10:40','zzy','吃货张三',?,'zhujiaofan','猪脚饭',?,'2','1','张某人-校内二舍617-15311223344')", img);
+        db.execSQL("insert into d_orders values('1','2024-4-07 11:56','zzy','吃货张三',?,'maidanglao','麦当劳',?,'1','1','张某人-校内二舍617-15311223344')", img);
+        db.execSQL("insert into d_orders values('2','2024-5-07 10:40','zzy','吃货张三',?,'mixuebingcheng','蜜雪冰城',?,'2','1','张某人-校内二舍617-15311223344')", img2);
 //        db.execSQL("insert into d_orders values('3','2024-5-08 11:30','wc','吃货吴四',?,'zhujiaofan','猪脚饭',?,'2','1','吴某人-校内二舍617-13011223344')", img);
 //        db.execSQL("insert into d_orders values('4','2024-5-09 12:00','wc','吃货吴四',?,'zhujiaofan','猪脚饭',?,'2','1','吴某人-校内二舍617-13011223344')", img);
 
@@ -148,17 +177,18 @@ public class DBUtil extends SQLiteOpenHelper {
                 "s_food_time varchar(200)," +//购买时间
                 "s_food_num varchar(255))");//购买的数量
 
-        String klms[] = {klmPath};
-        String mlts[] = {mltPath};
+        String mdls[] = {hbPath};
+        String mxsd[] = {sdPath};
+        String mxtt[] = {tt2Path};
 
-        //订单1
-        db.execSQL("insert into d_order_detail values('1','2','干锅小肉茄子','不吃就会后悔','11',?,'2024-4-07','2')", klms);
+//        订单1
+        db.execSQL("insert into d_order_detail values('1','1','汉堡','荤素搭配，营养美味.','11',?,'2024-4-07','2')", mdls);
 //        db.execSQL("insert into d_order_detail values('1','1','东北麻辣烫2','不吃就会后悔的麻辣烫2','19.86',?,'2023-10-07','15')", mlts);
 //        db.execSQL("insert into d_order_detail values('1','1','东北麻辣3','不吃就会后悔的麻辣烫3','19.86',?,'2023-10-07','20')", mlts);
-        //订单2
-        db.execSQL("insert into d_order_detail values('2','1','猪脚饭','吃！！','13',?,'2024-5-07','1')", mlts);
-//        db.execSQL("insert into d_order_detail values('2','1','东北麻辣烫2','不吃就会后悔的麻辣烫2','19.86',?,'2023-12-07','13')", mlts);
-//        db.execSQL("insert into d_order_detail values('2','1','东北麻辣烫3','不吃就会后悔的麻辣烫3','19.86',?,'2023-12-07','14')", mlts);
+//        订单2
+        db.execSQL("insert into d_order_detail values('2','4','圣代','很冰！！！','6',?,'2024-5-07','1')", mxsd);
+        db.execSQL("insert into d_order_detail values('2','5','2份甜筒','双倍快乐！！！','4',?,'2023-12-07','13')", mxtt);
+//        db.execSQL("insert into d_order_detail values('2','1','东北麻辣烫3','不吃就会后悔的麻辣烫3','19.86',?,'2023-12-07','14')", mlt);
 
 
 
@@ -175,8 +205,8 @@ public class DBUtil extends SQLiteOpenHelper {
                 "s_comment_business_id varchar(255)," +//评论的店铺ID (商家可以根据这个进行查看自己店铺的评论 与评分)
                 "s_comment_score varchar(255))");//评论可以有5个分数，1分-2分差评 3分中评 4 5好评
         String imgz[] = {filePath};
-        db.execSQL("insert into d_comments values('1','zzy','吃货张三',?,'这个菜是真的好吃，我要给五分好评！',?,'2023-10-07 10:56','ganguo','5')", img);
-        db.execSQL("insert into d_comments values('2','zzy','吃货张三',?,'怕你骄傲给三分','','2023-10-25 10:56','zhujiaofan','3')", imgz);
+        db.execSQL("insert into d_comments values('1','zzy','吃货张三',?,'这个汉堡是真的好吃，我要给五分好评！',?,'2023-10-07 10:56','maidanglao','5')", imgz);
+//        db.execSQL("insert into d_comments values('2','zzy','吃货张三',?,'怕你骄傲给三分','','2023-10-25 10:56','zhujiaofan','3')", imgz);
 
         db.execSQL("PRAGMA foreign_keys = true");
 
