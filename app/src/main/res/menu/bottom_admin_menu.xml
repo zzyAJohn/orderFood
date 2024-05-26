@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_food_admin"
+        android:title="商品"
+        android:icon="@drawable/home"
+
+        />
+
+    <item
+        android:id="@+id/navigation_order_admin"
+        android:title="订单"
+        android:icon="@drawable/dsh"
+        />
+
+    <item
+        android:id="@+id/navigation_notifications_admin"
+        android:title="我的"
+        android:icon="@drawable/my"
+        />
+
+</menu>

@@ -22,6 +22,9 @@
         android:theme="@style/Theme.OrderFood"
         tools:targetApi="31">
         <activity
+            android:name=".admin.activity.AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".user.activity.comment.UpdateAddressActivity"
             android:exported="false" />
         <activity

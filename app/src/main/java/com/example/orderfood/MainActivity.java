@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.orderfood.activity.BusinessActivity;
 import com.example.orderfood.activity.RegisteredBusiness;
 import com.example.orderfood.activity.RegisteredUsers;
+import com.example.orderfood.admin.activity.AdminActivity;
 import com.example.orderfood.dao.UserDao;
 import com.example.orderfood.db.DBUtil;
 import com.example.orderfood.user.activity.UserManageActivity;
@@ -115,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         etPwd = this.findViewById(R.id.et_pwd);
 
         rbBusiness = this.findViewById(R.id.rb_business);
+        rbUser = this.findViewById(R.id.rb_user);
         //让默认选择的是商家
         rbBusiness.setChecked(true);
 
@@ -153,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                 }
-            } else { //是用户
+            } else if (rbUser.isChecked()) { //是用户
                 int a = UserDao.loginUser(account, password, "2");
                 if (a == 0) { //密码错误
                     Toast.makeText(MainActivity.this, "账号或密码错误，登录失败", Toast.LENGTH_SHORT).show();
@@ -171,6 +173,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                 }
+            } else {
+                //跳转管理员页面
+                Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+                startActivity(intent);
+                Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
             }
 
         }
