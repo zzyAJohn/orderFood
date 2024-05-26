@@ -92,15 +92,14 @@ public class BuyFoodActivity extends AppCompatActivity {
 
 
         //实现选项卡功能
+        //点餐文字
+        TextView oneTap=   findViewById(R.id.buy_dc_one);
+        //点餐下的光标
+        View oneTapT=   findViewById(R.id.buy_t_one);
 
-     TextView oneTap=   findViewById(R.id.buy_dc_one);
-       View oneTapT=   findViewById(R.id.buy_t_one);
-
-
-
-
-
+        //评论文字
         TextView oneTap1=   findViewById(R.id.buy_dc_two);
+        //评论下的光标
         View oneTapT1=   findViewById(R.id.buy_t_two);
 
         ListView oneList = findViewById(R.id.buy_list_one);
@@ -154,15 +153,10 @@ public class BuyFoodActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
         //加载食物的信息
         ListView listView =findViewById(R.id.buy_list_one);//加载食物信息
-    //查询该商家的信息
 
+        //查询该商家的信息
         ArrayList<FoodBean> list = UserDao.getAllFood(business);
         if(list!=null&&list.size()>0){
             FoodBuyAdapter adapter = new FoodBuyAdapter(this, list);
@@ -170,10 +164,8 @@ public class BuyFoodActivity extends AppCompatActivity {
         }else{
             listView.setAdapter(null);
         }
+
         //加载框
-
-
-
         TextView sum =findViewById(R.id.buy_food_sum_one);
 
         TextView two =findViewById(R.id.buy_food_sum_two);
@@ -385,24 +377,6 @@ public class BuyFoodActivity extends AppCompatActivity {
 
                        }
                    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-
 
 
                }

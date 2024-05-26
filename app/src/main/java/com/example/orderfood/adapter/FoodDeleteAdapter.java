@@ -1,5 +1,6 @@
 package com.example.orderfood.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,32 +13,36 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.example.orderfood.R;
+import com.example.orderfood.activity.BusinessActivity;
+import com.example.orderfood.activity.UpdateBusinessMesActivity;
+import com.example.orderfood.activity.UpdateFoodActivity;
 import com.example.orderfood.admin.activity.AdminFoodActivity;
-import com.example.orderfood.bean.BusinessBean;
-import com.example.orderfood.bean.CommentBean;
 import com.example.orderfood.bean.FoodBean;
-import com.example.orderfood.dao.CommentDao;
+import com.example.orderfood.dao.FoodDao;
 import com.example.orderfood.dao.UserDao;
-import com.example.orderfood.tools.Tools;
 
-import java.text.DecimalFormat;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
-import java.util.List;
 
-public class AdminFoodAdapter extends ArrayAdapter<FoodBean> {
+public class FoodDeleteAdapter extends ArrayAdapter<FoodBean> {
+
 
     private ArrayList<FoodBean> list;
+    private Context context;
 
-
-    public AdminFoodAdapter(@NonNull Context context, ArrayList<FoodBean> list) {
-        super(context, R.layout.food_list_admin, list);
+    public FoodDeleteAdapter(@NonNull Context context, ArrayList<FoodBean> list) {
+        super(context, R.layout.delete_food_list, list);
         this.list=list;
-    }
+        this.context=context;
 
+    }
 
 
 
@@ -47,7 +52,7 @@ public class AdminFoodAdapter extends ArrayAdapter<FoodBean> {
         if(convertView==null){
 
             LayoutInflater inflater=LayoutInflater.from(getContext());
-            convertView=inflater.inflate(R.layout.food_list_admin,parent,false);
+            convertView=inflater.inflate(R.layout.delete_food_list,parent,false);
         }
 
         TextView name= convertView.findViewById(R.id.food_lis_sale_name);//价格
@@ -72,55 +77,23 @@ public class AdminFoodAdapter extends ArrayAdapter<FoodBean> {
         // 将加载的图像设置到ImageView中
         img.setImageBitmap(bitmap);
 
+//
 
 
+        Button btDeleteFood= convertView.findViewById(R.id.bt_delete_food);//下架食物
 
-        ImageView tx= convertView.findViewById(R.id.user_food_business_tx);//图片
-        String sjid=foodBean.getS_business_id();//商家ID，根据商家ID查询商家信息
-        BusinessBean sj = UserDao.getBusinessUser(sjid);
-
-
-        Tools.showImage(tx,sj.getS_img(),getContext());
-
-        TextView na= convertView.findViewById(R.id.user_food_business_name);
-        na.setText(sj.getS_name());//设置商家名称
-
-        List<CommentBean> come = CommentDao.getAllComment(sjid);//获取所有评论
-
-        float pjf=0;
-        if(come!=null&&come.size()>0){
-            int sum=0;
-            for (CommentBean commentBean : come) {
-                sum=sum+Integer.parseInt(commentBean.getS_comment_score());
-            }
-
-            pjf=sum/come.size();
-
-            DecimalFormat df = new DecimalFormat("#.0");
-            String pjfStr = df.format(pjf); //格式化pjf
-            pjf = Float.parseFloat(pjfStr); //转换回float类型
-        }
-        TextView pf= convertView.findViewById(R.id.user_food_business_pf);
-        pf.setText(String.valueOf(pjf)+" 分");//设置商家名称
+        JSONObject jsonObject=new JSONObject();
 
 
-
-
-
-        convertView.setOnClickListener(new View.OnClickListener() {
+        btDeleteFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //删除食物功能
+                FoodDao.delFood(foodBean.getS_food_id());
 
-                //需要将ID传过去
-
-                Intent intent=new Intent(getContext(), AdminFoodActivity.class);
-
-                intent.putExtra("business",foodBean.getS_business_id());
-                getContext().startActivity(intent);//打开目标界面
 
             }
         });
-
 
         return convertView;
     }
