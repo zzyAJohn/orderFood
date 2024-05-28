@@ -24,13 +24,9 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="7dp"
-
-            android:background="@drawable/image_round"
+            android:background="@drawable/hanbao"
             android:paddingLeft="5dp"
-
             android:scaleType="centerCrop"
-            android:src="@drawable/login"
-
             />
 
 
@@ -45,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="东北麻辣烫，炒香味道"
+                android:text="@string/food_name"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -63,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="价格：20 元"
+                android:text="价格：11 元"
                 android:textColor="#D32F2F"
                 android:textStyle="bold" />
 
@@ -72,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="描述：来自传统的酱香麻辣烫" />
+                android:text="描述：荤素搭配，营养美味" />
 
         </LinearLayout>
 
@@ -85,10 +81,7 @@
         android:layout_height="wrap_content"
         android:gravity="end"
         android:paddingRight="30dp"
-
         >
-
-
         <ImageView
             android:id="@+id/food_no_add"
             android:layout_width="30dp"

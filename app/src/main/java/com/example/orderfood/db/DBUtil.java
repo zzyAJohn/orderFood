@@ -153,7 +153,6 @@ public class DBUtil extends SQLiteOpenHelper {
 //        db.execSQL("insert into d_orders values('4','2024-5-09 12:00','wc','吃货吴四',?,'zhujiaofan','猪脚饭',?,'2','1','吴某人-校内二舍617-13011223344')", img);
 
 
-
         //5.创建地址表
         db.execSQL("drop table if exists d_address");//如果这表存在则删除
         db.execSQL("create table d_address(s_id varchar(30)primary key ," +//地址ID
@@ -192,7 +191,6 @@ public class DBUtil extends SQLiteOpenHelper {
 //        db.execSQL("insert into d_order_detail values('2','1','东北麻辣烫3','不吃就会后悔的麻辣烫3','19.86',?,'2023-12-07','14')", mlt);
 
 
-
         //7.创建评价表
         db.execSQL("drop table if exists d_comments");//如果这表存在则删除  代表的是用户表
         //评价管理，默认的是不可以删除评级的内容
@@ -205,8 +203,8 @@ public class DBUtil extends SQLiteOpenHelper {
                 "s_comment_time varchar(255)," +//评论的时间
                 "s_comment_business_id varchar(255)," +//评论的店铺ID (商家可以根据这个进行查看自己店铺的评论 与评分)
                 "s_comment_score varchar(255))");//评论可以有5个分数，1分-2分差评 3分中评 4 5好评
-        String imgz[] = {filePath};
-        db.execSQL("insert into d_comments values('1','zzy','吃货张三',?,'这个汉堡是真的好吃，我要给五分好评！',?,'2023-10-07 10:56','maidanglao','5')", imgz);
+        String imgz[] = {userPath1, hbPath};
+        db.execSQL("insert into d_comments values('1','zzy','吃货张三',?,'这个汉堡是真的好吃，我要给五分好评！',?,'2024-4-8 10:56','maidanglao','5')", imgz);
 //        db.execSQL("insert into d_comments values('2','zzy','吃货张三',?,'怕你骄傲给三分','','2023-10-25 10:56','zhujiaofan','3')", imgz);
 
         db.execSQL("PRAGMA foreign_keys = true");
