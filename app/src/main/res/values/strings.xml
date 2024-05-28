@@ -3,4 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="food_name">汉堡</string>
+    <string name="business_name">麦当劳</string>
+    <string name="eat_name">张某人</string>
+    <string name="phone">15311223344</string>
+    <string name="address">校内二舍617</string>
+    <string name="time">下单时间：2024-5-7 10:40</string>
 </resources>
