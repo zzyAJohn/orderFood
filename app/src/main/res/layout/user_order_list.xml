@@ -237,7 +237,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="订单已完成"
+            android:text="订单处理中"
             android:textColor="#FF3D00"
             android:textSize="12dp"
             android:textStyle="bold" />

@@ -205,6 +205,18 @@ public class OrderDao {
         return list;
     }
 
+    //管理员获取所有订单
+    public static List<OrderBean> getAllOrder(){
+        String sql = "select * from d_orders";
+        Cursor rs = db.rawQuery(sql, null);
+        List<OrderBean> list=new ArrayList<>();
+        while(rs.moveToNext()){
+            OrderBean detail = new OrderBean(rs.getString(0), rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10));
+            list.add(detail);
+        }
+        return list;
+    }
+
     /**
      * 实现订单编号搜索功能
      * @param

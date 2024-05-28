@@ -143,7 +143,7 @@ public class UserFinishAdapter extends ArrayAdapter<OrderBean> {
             sta.setText("订单处理中");
         }
         if(orderBean.getS_order_sta().equals("2")){
-            sta.setText("订单已取消");
+            sta.setText("用户取消订单");
         }
         if(orderBean.getS_order_sta().equals("3")){
 
@@ -152,10 +152,10 @@ public class UserFinishAdapter extends ArrayAdapter<OrderBean> {
            if(a!=1){//没有评论
                layout.setVisibility(View.VISIBLE);
            }
-
-
-
             sta.setText("订单已完成");
+        }
+        if(orderBean.getS_order_sta().equals("4")){
+            sta.setText("管理员取消订单");
         }
 
 

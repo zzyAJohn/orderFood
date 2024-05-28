@@ -132,20 +132,18 @@ public class OrderUserAdapter extends ArrayAdapter<OrderBean> {
 
 
 
-        Button button =convertView.findViewById(R.id.cancel_order_m);//取消顶订单
+        Button button =convertView.findViewById(R.id.cancel_order_m);//取消订单
 
-        //1 待处理 2拒绝 3完成 4取消
+        //点击取消订单
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //订单的状态更新为 "2",即“已取消”
                 OrderDao.updateOrder( orderBean.getS_order_id(),"2");
-
-               // list = OrderDao.getAllOrderByBusiness(account);
+                //移除列表中特定位置的数据项
                 remove(position);
+                //通知适配器数据集发生了变化，需要刷新界面
                 notifyDataSetChanged();
-
-
-
             }
         });
 
@@ -159,6 +157,9 @@ public class OrderUserAdapter extends ArrayAdapter<OrderBean> {
         }
         if(orderBean.getS_order_sta().equals("3")){
             sta.setText("订单已完成");
+        }
+        if(orderBean.getS_order_sta().equals("4")){
+            sta.setText("管理员将订单取消");
         }
 
 //        UUID id=UUID.randomUUID();//"aaa-aaaa"

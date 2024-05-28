@@ -2,7 +2,6 @@ package com.example.orderfood.user.activity.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +12,10 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import com.example.orderfood.R;
-import com.example.orderfood.adapter.UserFoodAdapter;
-import com.example.orderfood.bean.FoodBean;
 import com.example.orderfood.bean.OrderBean;
 import com.example.orderfood.dao.OrderDao;
-import com.example.orderfood.dao.UserDao;
 import com.example.orderfood.user.adapter.OrderUserAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

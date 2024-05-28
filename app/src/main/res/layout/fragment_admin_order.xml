@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.fragment.AdminOrderFragment">
+    android:orientation="vertical"
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/add_business_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="222" />
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="#FFFFFF"
 
-</FrameLayout>
+        >
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/user_search_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/search_edit"
+            app:iconifiedByDefault="false"
+            app:queryHint="搜索订单" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ListView
+        android:id="@+id/user_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="10dp"
+
+        />
+
+
+</LinearLayout>
+
+
+

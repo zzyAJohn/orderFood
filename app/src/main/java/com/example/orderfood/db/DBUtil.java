@@ -142,7 +142,7 @@ public class DBUtil extends SQLiteOpenHelper {
                 "s_order_business_name varchar(200)," +//商家名
                 "s_order_business_img varchar(255)," +//商家头像
                 "s_order_business_id varchar(20)," +//订单详情ID
-                "s_order_sta varchar(20)," +//订单状态 他有三个值，默认的是，未结单，接单，取消订单  1处理中，2取消订单  3完成订单
+                "s_order_sta varchar(20)," +//订单状态 他有四个值，默认的是待收货，  1待收货  2取消订单  3完成订单 4管理员取消订单
                 "s_order_adress varchar(255))");//收货地址
         String img[] = {userPath1, businessPath1};
         String img2[] = {userPath1, businessPath2};
@@ -152,7 +152,8 @@ public class DBUtil extends SQLiteOpenHelper {
         db.execSQL("insert into d_orders values('3','2024-4-12 20:44','zzy','吃货张三',?,'maidanglao','麦当劳',?,'3','2','张某人-堂食-15311223344')", img);
         db.execSQL("insert into d_orders values('4','2024-4-18 19:13','zzy','吃货张三',?,'maidanglao','麦当劳',?,'4','1','张某人-堂食-15311223344')", img);
         db.execSQL("insert into d_orders values('5','2024-5-07 10:40','zzy','吃货张三',?,'mixuebingcheng','蜜雪冰城',?,'5','1','张某人-校内二舍617-15311223344')", img2);
-//        db.execSQL("insert into d_orders values('3','2024-5-08 11:30','wc','吃货吴四',?,'zhujiaofan','猪脚饭',?,'2','1','吴某人-校内二舍617-13011223344')", img);
+        db.execSQL("insert into d_orders values('6','2024-5-09 15:39','zzy','吃货张三',?,'mixuebingcheng','蜜雪冰城',?,'6','4','张某人-校内二舍617-15311223344')", img2);
+        db.execSQL("insert into d_orders values('7','2024-5-12 11:30','wc','吃货吴四',?,'maidanglao','麦当劳',?,'7','1','吴某人-校内二舍617-13011223344')", img);
 //        db.execSQL("insert into d_orders values('4','2024-5-09 12:00','wc','吃货吴四',?,'zhujiaofan','猪脚饭',?,'2','1','吴某人-校内二舍617-13011223344')", img);
 
 
@@ -182,6 +183,7 @@ public class DBUtil extends SQLiteOpenHelper {
 
         String mdls[] = {hbPath};
         String mdls2[] = {stPath};
+        String mdls3[] = {st2Path};
         String mxsd[] = {sdPath};
         String mxtt[] = {tt2Path};
 
@@ -199,9 +201,14 @@ public class DBUtil extends SQLiteOpenHelper {
 
         //订单5 进行中
         db.execSQL("insert into d_order_detail values('5','4','圣代','很冰！！！','6',?,'2024-5-07','1')", mxsd);
-        db.execSQL("insert into d_order_detail values('5','5','2份甜筒','双倍快乐！！！','4',?,'2023-12-07','13')", mxtt);
+        db.execSQL("insert into d_order_detail values('5','5','2份甜筒','双倍快乐！！！','4',?,'2024-5-07','13')", mxtt);
 
+        //订单6 管理员取消订单
+        db.execSQL("insert into d_order_detail values('6','4','圣代','很冰！！！','6',?,'2024-5-09','999')", mxsd);
+        db.execSQL("insert into d_order_detail values('6','5','2份甜筒','双倍快乐！！！','4',?,'2023-5-09','999')", mxtt);
 
+        //订单7 进行中
+        db.execSQL("insert into d_order_detail values('7','3','2份薯条','快了翻倍！！！','14',?,'2024-5-12','1')", mdls3);
 
         //7.创建评价表
         db.execSQL("drop table if exists d_comments");//如果这表存在则删除  代表的是用户表

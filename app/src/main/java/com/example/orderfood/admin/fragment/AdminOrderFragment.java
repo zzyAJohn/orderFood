@@ -1,66 +1,126 @@
 package com.example.orderfood.admin.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.orderfood.R;
+import com.example.orderfood.admin.adapter.OrderAdminAdapter;
+import com.example.orderfood.bean.OrderBean;
+import com.example.orderfood.dao.OrderDao;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AdminOrderFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+import java.util.List;
+
+
 public class AdminOrderFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AdminOrderFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AdminOrderFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AdminOrderFragment newInstance(String param1, String param2) {
-        AdminOrderFragment fragment = new AdminOrderFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    String account;
+    View rootView;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        rootView = inflater.inflate(R.layout.fragment_admin_order, container, false);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
+        account = sharedPreferences.getString("account", "");
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                initializeViews();
+            }
+        }).start();
+
+        return rootView;
+    }
+
+
+    private void initializeViews() {
+        //获取当前账号,进行查询
+        ListView foodList = rootView.findViewById(R.id.user_list_view);
+
+        //管理员获取所有订单
+        List<OrderBean> originalItems = OrderDao.getAllOrder();
+
+        if (originalItems == null || originalItems.size() == 0) {
+            foodList.setAdapter(null);
+        } else {
+            OrderAdminAdapter adapter = new OrderAdminAdapter(getContext(), originalItems);
+            foodList.setAdapter(adapter);
         }
+
+        //实现搜索功能
+
+        SearchView search = rootView.findViewById(R.id.user_search_search);
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                if (query.equals("")) {
+                    ListView foodList = rootView.findViewById(R.id.user_list_view);
+                    List<OrderBean> originalItems = OrderDao.getAllOrderUser(account);
+
+                    if (originalItems == null || originalItems.size() == 0) {
+                        foodList.setAdapter(null);
+                    } else {
+                        OrderAdminAdapter adapter = new OrderAdminAdapter(getContext(), originalItems);
+                        foodList.setAdapter(adapter);
+                    }
+                } else {
+                    ListView foodList = rootView.findViewById(R.id.user_list_view);
+                    List<OrderBean> originalItems = OrderDao.getAllOrderUser(account, query);
+
+                    if (originalItems == null || originalItems.size() == 0) {
+                        foodList.setAdapter(null);
+                    } else {
+                        OrderAdminAdapter adapter = new OrderAdminAdapter(getContext(), originalItems);
+                        foodList.setAdapter(adapter);
+                    }
+                }
+
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (newText.equals("")) {
+                    ListView foodList = rootView.findViewById(R.id.user_list_view);
+                    List<OrderBean> originalItems = OrderDao.getAllOrderUser(account);
+
+                    if (originalItems == null || originalItems.size() == 0) {
+                        foodList.setAdapter(null);
+                    } else {
+                        OrderAdminAdapter adapter = new OrderAdminAdapter(getContext(), originalItems);
+                        foodList.setAdapter(adapter);
+                    }
+                } else {
+                    ListView foodList = rootView.findViewById(R.id.user_list_view);
+                    List<OrderBean> originalItems = OrderDao.getAllOrderUser(account, newText);
+
+                    if (originalItems == null || originalItems.size() == 0) {
+                        foodList.setAdapter(null);
+                    } else {
+                        OrderAdminAdapter adapter = new OrderAdminAdapter(getContext(), originalItems);
+                        foodList.setAdapter(adapter);
+                    }
+                }
+
+                return true;
+            }
+        });
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_order, container, false);
-    }
+
 }
