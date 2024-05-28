@@ -147,8 +147,11 @@ public class DBUtil extends SQLiteOpenHelper {
         String img[] = {userPath1, businessPath1};
         String img2[] = {userPath1, businessPath2};
         // select * from d_orders
-        db.execSQL("insert into d_orders values('1','2024-4-07 11:56','zzy','吃货张三',?,'maidanglao','麦当劳',?,'1','1','张某人-堂食-15311223344')", img);
-        db.execSQL("insert into d_orders values('2','2024-5-07 10:40','zzy','吃货张三',?,'mixuebingcheng','蜜雪冰城',?,'2','1','张某人-校内二舍617-15311223344')", img2);
+        db.execSQL("insert into d_orders values('1','2024-4-07 11:56','zzy','吃货张三',?,'maidanglao','麦当劳',?,'1','3','张某人-堂食-15311223344')", img);
+        db.execSQL("insert into d_orders values('2','2024-4-10 16:06','zzy','吃货张三',?,'maidanglao','麦当劳',?,'2','3','张某人-堂食-15311223344')", img);
+        db.execSQL("insert into d_orders values('3','2024-4-12 20:44','zzy','吃货张三',?,'maidanglao','麦当劳',?,'3','2','张某人-堂食-15311223344')", img);
+        db.execSQL("insert into d_orders values('4','2024-4-18 19:13','zzy','吃货张三',?,'maidanglao','麦当劳',?,'4','1','张某人-堂食-15311223344')", img);
+        db.execSQL("insert into d_orders values('5','2024-5-07 10:40','zzy','吃货张三',?,'mixuebingcheng','蜜雪冰城',?,'5','1','张某人-校内二舍617-15311223344')", img2);
 //        db.execSQL("insert into d_orders values('3','2024-5-08 11:30','wc','吃货吴四',?,'zhujiaofan','猪脚饭',?,'2','1','吴某人-校内二舍617-13011223344')", img);
 //        db.execSQL("insert into d_orders values('4','2024-5-09 12:00','wc','吃货吴四',?,'zhujiaofan','猪脚饭',?,'2','1','吴某人-校内二舍617-13011223344')", img);
 
@@ -178,17 +181,26 @@ public class DBUtil extends SQLiteOpenHelper {
                 "s_food_num varchar(255))");//购买的数量
 
         String mdls[] = {hbPath};
+        String mdls2[] = {stPath};
         String mxsd[] = {sdPath};
         String mxtt[] = {tt2Path};
 
-//        订单1
+        //订单1 完成订单
         db.execSQL("insert into d_order_detail values('1','1','汉堡','荤素搭配，营养美味.','11',?,'2024-4-07','2')", mdls);
-//        db.execSQL("insert into d_order_detail values('1','1','东北麻辣烫2','不吃就会后悔的麻辣烫2','19.86',?,'2023-10-07','15')", mlts);
-//        db.execSQL("insert into d_order_detail values('1','1','东北麻辣3','不吃就会后悔的麻辣烫3','19.86',?,'2023-10-07','20')", mlts);
-//        订单2
-        db.execSQL("insert into d_order_detail values('2','4','圣代','很冰！！！','6',?,'2024-5-07','1')", mxsd);
-        db.execSQL("insert into d_order_detail values('2','5','2份甜筒','双倍快乐！！！','4',?,'2023-12-07','13')", mxtt);
-//        db.execSQL("insert into d_order_detail values('2','1','东北麻辣烫3','不吃就会后悔的麻辣烫3','19.86',?,'2023-12-07','14')", mlt);
+
+        //订单2 完成订单 未评价
+        db.execSQL("insert into d_order_detail values('2','2','薯条','上好的土豆','8',?,'2024-4-10','1')", mdls2);
+
+        //订单3 取消订单
+        db.execSQL("insert into d_order_detail values('3','1','汉堡','荤素搭配，营养美味.','11',?,'2024-4-12','99')", mdls);
+
+        //订单4 进行中
+        db.execSQL("insert into d_order_detail values('4','1','汉堡','荤素搭配，营养美味.','11',?,'2024-4-18','5')", mdls);
+
+        //订单5 进行中
+        db.execSQL("insert into d_order_detail values('5','4','圣代','很冰！！！','6',?,'2024-5-07','1')", mxsd);
+        db.execSQL("insert into d_order_detail values('5','5','2份甜筒','双倍快乐！！！','4',?,'2023-12-07','13')", mxtt);
+
 
 
         //7.创建评价表
