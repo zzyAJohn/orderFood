@@ -25,11 +25,11 @@
             android:layout_height="100dp"
             android:layout_margin="7dp"
 
-            android:background="@drawable/image_round"
+            android:background="@drawable/hanbao"
             android:paddingLeft="5dp"
 
             android:scaleType="centerCrop"
-            android:src="@drawable/login"
+
 
             />
 
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="东北麻辣烫，炒香味道"
+                android:text="汉堡"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="描述：来自传统的酱香麻辣烫" />
+                android:text="描述：荤素搭配，营养美味" />
 
         </LinearLayout>
 
