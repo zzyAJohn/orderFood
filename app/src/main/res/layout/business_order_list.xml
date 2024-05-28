@@ -26,7 +26,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
 
-            android:src="@drawable/upimg"
+            android:src="@drawable/mdl"
 
             />
 
@@ -40,7 +40,7 @@
 
             android:layout_toRightOf="@id/business_order_tx_list"
             android:gravity="center_horizontal|center_vertical"
-            android:text="小铭购买用户"
+            android:text="@string/business_name"
             android:textStyle="bold"
 
             />
@@ -57,7 +57,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
 
-            android:text="下单时间：2023-10-18 18:23"
+            android:text="@string/time"
             android:textStyle="bold"
 
             />
@@ -87,7 +87,7 @@
             android:layout_marginBottom="5dp"
 
             android:layout_toRightOf="@+id/order_accept"
-            android:text="小明" />
+            android:text="@string/eat_name" />
 
 
         <TextView
@@ -108,13 +108,14 @@
             android:layout_below="@+id/order_accept"
             android:layout_marginBottom="5dp"
             android:layout_toRightOf="@+id/order_Address"
-            android:text="上海市，浦东区，园区一号" />
+            android:text="@string/address" />
 
         <TextView
             android:id="@+id/order_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/order_Address"
+            android:layout_marginBottom="5dp"
             android:text="联系方式："
             android:textStyle="bold" />
 
@@ -123,8 +124,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/order_Address_text"
+            android:layout_marginBottom="5dp"
             android:layout_toRightOf="@+id/order_Address"
-            android:text="123456789" />
+            android:text="@string/phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order_text"
+            android:text="取  餐  码："
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_order_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order_text"
+            android:layout_toRightOf="@+id/order_Address"
+            android:text="1" />
 
 
     </RelativeLayout>
@@ -166,7 +183,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/upimg"
+                    android:src="@drawable/hanbao"
 
                     />
 
@@ -175,7 +192,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="2dp"
                     android:gravity="center_horizontal|center_vertical"
-                    android:text="东北麻辣烫"
+                    android:text="@string/food_name"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 

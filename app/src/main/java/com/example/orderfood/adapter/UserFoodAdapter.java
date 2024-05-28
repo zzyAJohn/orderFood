@@ -49,7 +49,7 @@ public class UserFoodAdapter extends ArrayAdapter<FoodBean> {
             convertView=inflater.inflate(R.layout.food_list_user,parent,false);
         }
 
-        TextView name= convertView.findViewById(R.id.food_lis_sale_name);//价格
+        TextView name= convertView.findViewById(R.id.food_lis_sale_name);//
         TextView sale= convertView.findViewById(R.id.food_lis_sale_num);//销售数量
         TextView price= convertView.findViewById(R.id.food_list_price);//销售数量
         TextView des= convertView.findViewById(R.id.food_list_des);//描述

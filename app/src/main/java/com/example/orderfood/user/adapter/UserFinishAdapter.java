@@ -64,6 +64,8 @@ public class UserFinishAdapter extends ArrayAdapter<OrderBean> {
 
         TextView peo=convertView.findViewById(R.id.order_accept_text);//联系方式
 
+        TextView tvOrderNum=convertView.findViewById(R.id.tv_order_num);//取餐码
+
 
 
 
@@ -72,7 +74,7 @@ public class UserFinishAdapter extends ArrayAdapter<OrderBean> {
 
         //实现显示图片
 
-
+        tvOrderNum.setText(orderBean.getS_order_id());
 
        // s_order_business
         String uid=orderBean.getS_order_business();//商家DI
