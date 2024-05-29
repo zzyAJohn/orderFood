@@ -1,10 +1,8 @@
 package com.example.orderfood.admin.adapter;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -20,15 +18,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.orderfood.R;
-import com.example.orderfood.activity.BusinessActivity;
-import com.example.orderfood.activity.UpdateBusinessMesActivity;
-import com.example.orderfood.activity.UpdateFoodActivity;
-import com.example.orderfood.admin.activity.AdminFoodActivity;
 import com.example.orderfood.bean.FoodBean;
 import com.example.orderfood.dao.FoodDao;
 import com.example.orderfood.dao.UserDao;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;

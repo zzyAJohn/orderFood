@@ -4,12 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -17,9 +13,6 @@ import com.example.orderfood.R;
 import com.example.orderfood.admin.fragment.AdminFoodFragment;
 import com.example.orderfood.admin.fragment.AdminMyFragment;
 import com.example.orderfood.admin.fragment.AdminOrderFragment;
-import com.example.orderfood.user.activity.fragment.HomeFragment;
-import com.example.orderfood.user.activity.fragment.HomeNoFinishFragment;
-import com.example.orderfood.user.activity.fragment.UserMyFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 

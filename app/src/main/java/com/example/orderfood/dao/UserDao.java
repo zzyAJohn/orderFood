@@ -432,10 +432,10 @@ public class UserDao {
      * @return
      */
     public static String getMonthlySales(String food_id){
-       // Cursor res = db.rawQuery("select strftime('%Y-%m',s_food_time) as month,sum(s_food_num) as total_sales  from d_order_details ", );
 
-         Cursor res = db.rawQuery("select strftime('%Y-%m',s_food_time) as month,sum(s_food_num) as total_sales  from d_order_detail where s_food_id=?   GROUP BY month ORDER BY month desc", new String[]{food_id});
-        //这么多条记录只取第一条
+        //月售只取订单已完成的数量
+        Cursor res = db.rawQuery("select strftime('%Y-%m', s_food_time) as month, sum(s_food_num) as total_sales from d_order_detail join d_orders on d_order_detail.s_order_business_id = d_orders.s_order_business_id where d_order_detail.s_food_id=? and d_orders.s_order_sta='3' GROUP BY month ORDER BY month desc", new String[]{food_id});
+        //只取销量最多的月
         while(res.moveToNext()){
 
            return res.getString(1);
