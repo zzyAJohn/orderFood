@@ -58,7 +58,8 @@ public class OrderBusinessAdapter extends ArrayAdapter<OrderBean> {
         TextView phone=convertView.findViewById(R.id. order_phone_text);//联系方式
 
         TextView peo=convertView.findViewById(R.id.order_accept_text);//联系方式
-
+        TextView tvOrderNum=convertView.findViewById(R.id.tv_order_num);//取餐码
+        tvOrderNum.setText(orderBean.getS_order_id());
 
 
         String address=orderBean.getS_order_address();//"姓名-地址-联系凡是"
@@ -119,12 +120,13 @@ public class OrderBusinessAdapter extends ArrayAdapter<OrderBean> {
 
 
 
+        // 商家订单按钮
         Button button =convertView.findViewById(R.id.cancel_order_m);//取消顶订单
         Button buttonOne =convertView.findViewById(R.id.finish_order_m);//完成订单
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OrderDao.updateOrder( orderBean.getS_order_id(),"2");
+                OrderDao.updateOrder( orderBean.getS_order_id(),"5");
 
                // list = OrderDao.getAllOrderByBusiness(account);
                 remove(position);
@@ -151,10 +153,16 @@ public class OrderBusinessAdapter extends ArrayAdapter<OrderBean> {
             sta.setText("订单处理中");
         }
         if(orderBean.getS_order_sta().equals("2")){
-            sta.setText("订单已取消");
+            sta.setText("用户取消订单");
         }
         if(orderBean.getS_order_sta().equals("3")){
             sta.setText("订单已完成");
+        }
+        if(orderBean.getS_order_sta().equals("4")){
+            sta.setText("管理员取消订单");
+        }
+        if(orderBean.getS_order_sta().equals("5")){
+            sta.setText("商家取消订单");
         }
 
 //        UUID id=UUID.randomUUID();//"aaa-aaaa"

@@ -153,13 +153,16 @@ public class OrderUserAdapter extends ArrayAdapter<OrderBean> {
             sta.setText("订单处理中");
         }
         if(orderBean.getS_order_sta().equals("2")){
-            sta.setText("订单已取消");
+            sta.setText("用户取消订单");
         }
         if(orderBean.getS_order_sta().equals("3")){
             sta.setText("订单已完成");
         }
         if(orderBean.getS_order_sta().equals("4")){
             sta.setText("管理员将订单取消");
+        }
+        if(orderBean.getS_order_sta().equals("5")){
+            sta.setText("商家取消订单");
         }
 
 //        UUID id=UUID.randomUUID();//"aaa-aaaa"
