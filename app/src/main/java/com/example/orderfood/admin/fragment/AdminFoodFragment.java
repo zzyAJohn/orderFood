@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.orderfood.R;
-import com.example.orderfood.adapter.AdminFoodAdapter;
+import com.example.orderfood.admin.adapter.AdminFoodAdapter;
 import com.example.orderfood.bean.FoodBean;
 import com.example.orderfood.dao.UserDao;
 

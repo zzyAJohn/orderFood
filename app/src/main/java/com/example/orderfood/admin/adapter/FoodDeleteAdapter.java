@@ -1,7 +1,9 @@
-package com.example.orderfood.adapter;
+package com.example.orderfood.admin.adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -44,7 +46,9 @@ public class FoodDeleteAdapter extends ArrayAdapter<FoodBean> {
 
     }
 
-
+    public void remove(int position) {
+        list.remove(position);
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
@@ -85,13 +89,30 @@ public class FoodDeleteAdapter extends ArrayAdapter<FoodBean> {
         JSONObject jsonObject=new JSONObject();
 
 
+
+        // 管理员下架商品
         btDeleteFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //删除食物功能
-                FoodDao.delFood(foodBean.getS_food_id());
-
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setMessage("确认要删除吗？");
+                builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // 用户点击确认按钮后执行删除操作
+                        FoodDao.delFood(foodBean.getS_food_id());
+                        remove(position);
+                        notifyDataSetChanged();
+                        Toast.makeText(context, "下架成功！", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // 用户点击取消按钮，不执行任何操作
+                    }
+                });
+                builder.show();
             }
         });
 

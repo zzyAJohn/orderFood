@@ -6,45 +6,26 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
 import com.example.orderfood.R;
-import com.example.orderfood.adapter.AddressAdapter;
-import com.example.orderfood.adapter.FoodBuyAdapter;
-import com.example.orderfood.adapter.FoodDeleteAdapter;
-import com.example.orderfood.bean.AddressBean;
+import com.example.orderfood.admin.adapter.FoodDeleteAdapter;
 import com.example.orderfood.bean.BusinessBean;
 import com.example.orderfood.bean.CommentBean;
 import com.example.orderfood.bean.FoodBean;
-import com.example.orderfood.bean.UserBean;
-import com.example.orderfood.dao.AddressDao;
 import com.example.orderfood.dao.CommentDao;
-import com.example.orderfood.dao.FoodDao;
-import com.example.orderfood.dao.OrderDao;
 import com.example.orderfood.dao.UserDao;
 import com.example.orderfood.tools.Tools;
-import com.example.orderfood.user.activity.BuyFoodActivity;
-import com.example.orderfood.user.adapter.BuyFoodAdapter;
 import com.example.orderfood.user.adapter.CommentUserAdapter;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.snackbar.Snackbar;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class AdminFoodActivity extends AppCompatActivity {

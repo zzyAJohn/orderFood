@@ -191,6 +191,8 @@ public class UpdateFoodActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.del_food, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+    //商家删除食物
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id=item.getItemId();
