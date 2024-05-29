@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -195,18 +197,24 @@ public class UpdateFoodActivity extends AppCompatActivity {
     //商家删除食物
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id=item.getItemId();
-        if(id==R.id.del_menu){
-
-            FoodDao.delFood(foodIdT);
-
-            Intent intent=new Intent(UpdateFoodActivity.this, BusinessActivity.class);
-            startActivity(intent);
-
+        int id = item.getItemId();
+        if (id == R.id.del_menu) {
+            new AlertDialog.Builder(this)
+                    .setTitle("确认删除食物")
+                    .setMessage("确定要删除这个食物吗？")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // 用户点击确定按钮后执行删除操作
+                            FoodDao.delFood(foodIdT);
+                            Toast.makeText(UpdateFoodActivity.this, "删除成功！", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(UpdateFoodActivity.this, BusinessActivity.class);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, null)
+                    .show();
         }
         return super.onOptionsItemSelected(item);
-
-
     }
 
 
