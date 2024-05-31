@@ -20,7 +20,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/upimg"
+            android:src="@drawable/dadaliya"
 
 
             />
@@ -33,7 +33,7 @@
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/comment_tx"
             android:gravity="left|center_horizontal|center_vertical"
-            android:text="小新用户"
+            android:text="@string/eat_name"
             android:textStyle="bold"
 
 
@@ -47,7 +47,7 @@
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/comment_tx"
             android:gravity="left|center_horizontal|center_vertical"
-            android:text="2023-10-23 10：56" />
+            android:text="@string/time" />
 
 
     </RelativeLayout>
@@ -75,7 +75,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/wxx"
+            android:background="@drawable/xx"
 
             android:button="@null"
             android:gravity="center"
@@ -87,7 +87,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/wxx"
+            android:background="@drawable/xx"
 
             android:button="@null"
             android:gravity="center"
@@ -100,7 +100,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/wxx"
+            android:background="@drawable/xx"
 
             android:button="@null"
             android:gravity="center"
@@ -115,7 +115,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/wxx"
+            android:background="@drawable/xx"
             android:button="@null"
             android:gravity="center"
             android:stateListAnimator="@null"
@@ -143,7 +143,7 @@
             android:id="@+id/comment_con"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="这是我吃过的最好吃的麻辣烫了" />
+            android:text="好吃!好吃!好吃!好吃!好吃!好吃!好吃!好吃!好吃!好吃!好吃!" />
 
 
         <ImageView
@@ -152,7 +152,7 @@
             android:layout_height="90dp"
             android:layout_marginTop="5dp"
             android:gravity="left"
-            android:src="@drawable/upimg" />
+            android:src="@drawable/hanbao" />
 
 
     </LinearLayout>

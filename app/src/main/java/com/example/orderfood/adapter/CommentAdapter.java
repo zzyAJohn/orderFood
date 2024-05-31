@@ -28,15 +28,18 @@ import com.example.orderfood.tools.Tools;
 
 import java.util.List;
 
+/**
+ * 商家评论适配器
+ */
+
 public class CommentAdapter extends ArrayAdapter<CommentBean> {
-
-
     private List<CommentBean> list;
-
+    private ImageView imageView;
+    private TextView userName, time;
 
     public CommentAdapter(@NonNull Context context, List<CommentBean> list) {
         super(context, R.layout.comment_list, list);
-        this.list=list;
+        this.list = list;
     }
 
 
@@ -44,65 +47,66 @@ public class CommentAdapter extends ArrayAdapter<CommentBean> {
         list.remove(position);
     }
 
+    private void InitView(View convertView) {
+        imageView = convertView.findViewById(R.id.comment_tx);
+        userName = convertView.findViewById(R.id.comment_user_name);//昵称
+        time = convertView.findViewById(R.id.comment_user_time);//时间
+    }
+
+    private void InitData(CommentBean cm) {
+        userName.setText(cm.getS_comment_user_name());
+        time.setText(cm.getS_comment_time());
+    }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
-        Log.d("FoodAdapter", "getView called for position: " + position);
-        if(convertView==null){
-
-            LayoutInflater inflater=LayoutInflater.from(getContext());
-            convertView=inflater.inflate(R.layout.comment_list,parent,false);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(R.layout.comment_list, parent, false);
         }
 
-        CommentBean cm=list.get(position);
+        CommentBean cm = list.get(position);
 
-        ImageView imageView=convertView.findViewById(R.id.comment_tx);
-        Tools.showImage(imageView,cm.getS_comment_user_img(),getContext());//用户的头像
+        // 初始化控件
+        InitView(convertView);
 
-        TextView userName=convertView.findViewById(R.id.comment_user_name);//昵称
-        userName.setText(cm.getS_comment_user_name());
+        // 初始化数据
+        InitData(cm);
 
+        Tools.showImage(imageView, cm.getS_comment_user_img(), getContext());//用户的头像
+        int id[] = {R.id.comment_one_a, R.id.comment_one_b, R.id.comment_one_c, R.id.comment_one_d, R.id.comment_one_e};//5个星星的ID
 
-        TextView time=convertView.findViewById(R.id.comment_user_time);//时间
-        time.setText(cm.getS_comment_time());
-
-
-        int id[]={R.id.comment_one_a,R.id.comment_one_b,R.id.comment_one_c,R.id.comment_one_d,R.id.comment_one_e};//5个星星的ID
-
-        int score=Integer.parseInt(cm.getS_comment_score());
-        for(int i=0;i<score;i++){//正向的凡是
-
-           RadioButton temp= convertView.findViewById(id[i]);
-           Bitmap bitmap= BitmapFactory.decodeResource(convertView.getResources(),R.drawable.xx);
+        int score = Integer.parseInt(cm.getS_comment_score());
+        // 实心的星星
+        for (int i = 0; i < score; i++) {
+            RadioButton temp = convertView.findViewById(id[i]);
+            Bitmap bitmap = BitmapFactory.decodeResource(convertView.getResources(), R.drawable.xx);
             BitmapDrawable bitmapDrawable = new BitmapDrawable(convertView.getResources(), bitmap);
             temp.setBackground(bitmapDrawable);
         }
-        for(int i=score;i<5;i++){
-            RadioButton temp= convertView.findViewById(id[i]);
-            Bitmap bitmap= BitmapFactory.decodeResource(convertView.getResources(),R.drawable.wxx);
+        // 空心的星星
+        for (int i = score; i < 5; i++) {
+            RadioButton temp = convertView.findViewById(id[i]);
+            Bitmap bitmap = BitmapFactory.decodeResource(convertView.getResources(), R.drawable.wxx);
             BitmapDrawable bitmapDrawable = new BitmapDrawable(convertView.getResources(), bitmap);
             temp.setBackground(bitmapDrawable);
         }
 
         //星代表的内容
-        String nr[]={"非常差","差","一般","满意","非常满意"};
-       TextView nrT= convertView.findViewById(R.id.comment_one_f);
-        nrT.setText(nr[score-1]);
+        String nr[] = {"非常差", "差", "一般", "满意", "非常满意"};
+        TextView nrT = convertView.findViewById(R.id.comment_one_f);
+        nrT.setText(nr[score - 1]);
 
         //一个显示图片，一共显示内容
-       TextView con= convertView.findViewById(R.id.comment_con);
+        TextView con = convertView.findViewById(R.id.comment_con);
         con.setText(cm.getS_comment_contenct());
-       ImageView img= convertView.findViewById(R.id.comment_con_img);
+        ImageView img = convertView.findViewById(R.id.comment_con_img);
 
-       if(cm.getS_comment_img().equals("")){
-           img.setVisibility(View.GONE);
-       }else{
-           Tools.showImage(img,cm.getS_comment_img(),getContext());
-       }
-
-
-
-
+        if (cm.getS_comment_img().equals("")) {
+            img.setVisibility(View.GONE);
+        } else {
+            Tools.showImage(img, cm.getS_comment_img(), getContext());
+        }
         return convertView;
     }
 }

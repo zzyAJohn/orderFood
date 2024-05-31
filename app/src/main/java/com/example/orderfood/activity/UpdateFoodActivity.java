@@ -187,6 +187,8 @@ public class UpdateFoodActivity extends AppCompatActivity {
         // 打开相册并等待用户选择图片
         getContentLauncher.launch("image/*");
     }
+
+    //初始化删除按钮
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
